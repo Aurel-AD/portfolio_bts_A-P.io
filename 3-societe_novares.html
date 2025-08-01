@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Présentation de Novares et de mon rôle</title>
+  <!-- Polices modernisées -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      margin: 0;
+      padding: 0;
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 40px;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 2.8rem;
+      color: #34d399;
+      text-align: center;
+      margin: 0 0 30px 0;
+      text-shadow: 0 2px 10px rgba(52, 211, 153, 0.3);
+      position: relative;
+    }
+    
+    h1::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: #34d399;
+      margin: 15px auto;
+      border-radius: 2px;
+    }
+    
+    .content {
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #e2e8f0;
+    }
+    
+    .highlight {
+      background: linear-gradient(120deg, transparent 0%, rgba(52, 211, 153, 0.3) 50%, transparent 100%);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    
+    .highlight-text {
+      background: linear-gradient(120deg, transparent 0%, rgba(52, 211, 153, 0.4) 50%, transparent 100%);
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #64ffda;
+      font-size: 1.2rem;
+    }
+    
+    .image-container {
+      text-align: center;
+      margin: 30px 0;
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      border: 3px solid rgba(52, 211, 153, 0.3);
+    }
+    
+    .image-container a {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    
+    .image-container a:hover {
+      transform: scale(1.02);
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .stats-container {
+      background: rgba(30, 41, 59, 0.5);
+      padding: 25px;
+      border-radius: 15px;
+      margin: 30px 0;
+      border: 1px solid rgba(52, 211, 153, 0.2);
+    }
+    
+    .stats-title {
+      font-family: 'Montserrat', sans-serif;
+      color: #34d399;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 15px;
+      background: rgba(52, 211, 153, 0.1);
+      border-radius: 10px;
+      border: 1px solid rgba(52, 211, 153, 0.2);
+    }
+    
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #34d399;
+      margin-bottom: 5px;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+    
+    .personal-section {
+      background: rgba(30, 41, 59, 0.3);
+      padding: 25px;
+      border-radius: 15px;
+      margin: 30px 0;
+      border-left: 4px solid #34d399;
+    }
+    
+    .personal-title {
+      font-family: 'Montserrat', sans-serif;
+      color: #64ffda;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+    
+    .navigation {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      color: #34d399;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 30px;
+      border: 2px solid #34d399;
+    }
+    
+    .nav-link:hover {
+      background: #34d399;
+      color: #0f172a;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(52, 211, 153, 0.3);
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      color: #64748b;
+      font-size: 0.9rem;
+      padding: 20px;
+    }
+    
+    strong {
+      color: #64ffda;
+      font-weight: 600;
+    }
+    
+    .section {
+      margin-bottom: 25px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Présentation de Novares et de mon rôle au sein de l'entreprise</h1>
+    
+    <div class="image-container">
+      <a href="novares.jpg">
+        <img src="novares.jpg" alt="Image Novares">
+      </a>
+    </div>
+    
+    <div class="content">
+      <div class="section">
+        <p><strong>Novares</strong> est un fournisseur mondial de solutions plastiques innovantes, basé en France. Spécialisée dans la conception et la fabrication de composants et de systèmes plastiques complexes pour l'industrie automobile, l'entreprise joue un rôle clé dans la transformation du véhicule de demain. Elle s'engage à rendre les voitures plus écologiques, plus légères et plus connectées, en intégrant des interfaces intelligentes et intuitives. Cette ambition se concrétise notamment à travers son projet phare <span class="highlight">NOVA CAR</span>, vitrine technologique des innovations du groupe.</p>
+      </div>
+      
+      <div class="image-container">
+        <a href="novacar.jpg">
+          <img src="novacar.jpg" alt="Image NovaCar">
+        </a>
+      </div>
+      
+      <div class="section">
+        <p><strong>Novares</strong> collabore avec la quasi-totalité des constructeurs automobiles mondiaux (OEM), ainsi qu'avec de nombreux fournisseurs de rang 1, en leur apportant une expertise reconnue en ingénierie et en production. Présente dans <span class="highlight">22 pays</span>, la société contribue à la fabrication d'un véhicule sur trois dans le monde.</p>
+      </div>
+      
+      <div class="stats-container">
+        <div class="stats-title">Chiffres clés 2023</div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">1,2 Md€</div>
+            <div class="stat-label">Chiffre d'affaires</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">37</div>
+            <div class="stat-label">Usines de production</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Centres d'expertise</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">7</div>
+            <div class="stat-label">Centres techniques</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">17</div>
+            <div class="stat-label">Centres de service client</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="personal-section">
+        <div class="personal-title">Mon rôle chez Novares</div>
+        <p>Depuis 2024, je travaille au centre d'expertise de <span class="highlight-text">Lens</span>, inauguré en 2021, l'un des piliers technologiques de Novares. Sous la supervision d'un administrateur technique IT, j'assure un support informatique local ou à distance, tout en collaborant étroitement avec les équipes IT nationales basées à <span class="highlight">Vélizy</span>, <span class="highlight">Monaco</span> et <span class="highlight">Lyon</span>, voire même à l'international.</p>
+        
+        <p>Mon rôle m'amène également à intervenir régulièrement sur les sites de production de <span class="highlight">Libercourt (62820)</span> et de <span class="highlight">Villers-Bretonneux (80800)</span>, où je veille à la bonne coordination des solutions IT et à la continuité des services numériques.</p>
+        
+        <p>Cette mission me permet de conjuguer compétences techniques, mobilité sur le terrain et travail collaboratif à l'échelle nationale, dans un environnement industriel en constante évolution.</p>
+      </div>
+      
+      <div class="navigation">
+        <a href="0-index.html" class="nav-link">
+           <svg class="icon-arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+           <path d="M10 8a.5.5 0 0 0-.5-.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H9.5A.5.5 0 0 0 10 8z"/>
+           </svg>
+                Retour à l'accueil
+        </a>
+      </div>
+      
+      <footer>
+		&copy; 2025 Pont Aurélien - Tous droits réservés      
+		</footer>
+    </div>
+  </div>
+</body>
+</html>

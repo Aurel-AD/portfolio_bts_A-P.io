@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - BTS SIO SISR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #111;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0B8043;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+    }
+
+    .avatar-container {
+      position: relative;
+    }
+
+    .avatar-container a {
+      display: block;
+      border-radius: 50%;
+      perspective: 1000px;
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 3px solid #37ff9f;
+      box-shadow: 
+        0 0 10px rgba(55, 255, 159, 0.7),
+        0 0 20px rgba(55, 255, 159, 0.4);
+      object-fit: cover;
+      background: white;
+      transition: transform 0.2s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    main {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 1rem auto;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Portfolio - BTS SIO SISR</h1>
+    <div class="avatar-container">
+      <a href="cv.html" target="_blank" rel="noopener noreferrer">
+        <img src="1-dossiers/Avatar.png" alt="Mon avatar" class="avatar" />
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <p>
+      Bienvenue sur mon portfolio. Vous y trouverez mes compétences, projets, parcours en alternance et plus encore !
+    </p>
+  </main>
+
+  <!-- ✅ Script Avatar Tilt -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const avatar = document.querySelector('.avatar-container .avatar');
+
+      if (!avatar) return;
+
+      avatar.style.transition = 'transform 0.2s ease';
+      avatar.style.transformStyle = 'preserve-3d';
+      avatar.style.willChange = 'transform';
+
+      avatar.addEventListener('mousemove', (e) => {
+        const rect = avatar.getBoundingClientRect();
+        const offsetX = e.clientX - rect.left;
+        const offsetY = e.clientY - rect.top;
+
+        const rotateX = ((offsetY / rect.height) - 0.5) * -20;
+        const rotateY = ((offsetX / rect.width) - 0.5) * 20;
+
+        avatar.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      avatar.addEventListener('mouseleave', () => {
+        avatar.style.transform = 'rotateX(0deg) rotateY(0deg)';
+      });
+    });
+  </script>
+</body>
+</html>

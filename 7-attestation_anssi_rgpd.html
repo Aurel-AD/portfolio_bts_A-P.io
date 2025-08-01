@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mes Certifications</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .certification-container {
+      max-width: 920px;
+      margin: 30px auto;
+      background: #1a1a1a;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid #333;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: white;
+      text-align: center;
+      padding: 50px 25px 40px;
+    }
+
+    .header h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 17px;
+      opacity: 0.9;
+    }
+
+    .certification-section {
+      padding: 30px;
+    }
+
+    /* Titres avec icônes argentées */
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #e0e0e0;
+      border-bottom: 1px solid #444;
+      display: inline-block;
+      margin: 30px 0 20px;
+      padding-bottom: 10px;
+    }
+
+    .silver-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #ffffff, #d0d8e4, #a3b3c8, #bac7d7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      box-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
+      margin-right: 10px;
+    }
+
+    .section-title i {
+      font-size: 16px;
+    }
+
+    .certification-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 22px;
+      margin-bottom: 30px;
+    }
+
+    .certification-card {
+      background: #222;
+      border-radius: 12px;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      border: 1px solid #333;
+    }
+
+    .certification-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      border-color: #3b82f6;
+    }
+
+    .certification-card a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .certification-header {
+      display: flex;
+      align-items: center;
+      padding: 16px 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .certification-header i {
+      margin-right: 12px;
+      font-size: 18px;
+    }
+
+    .certification-header h4 {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .certification-header.rgpd-header {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .certification-header.anssi-header {
+      background: #ef4444;
+      color: white;
+    }
+
+    .certification-content {
+      padding: 16px 18px;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .certification-content p {
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .footer {
+      background: #1f1f1f;
+      text-align: center;
+      padding: 18px;
+      color: #9ca3af;
+      font-size: 14px;
+      border-top: 1px solid #333;
+    }
+
+    .retour-bouton {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 15px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      border-radius: 14px;
+      cursor: pointer;
+      margin: 20px auto;
+      display: block;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+    }
+
+    .retour-bouton:hover {
+      background-color: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
+    }
+
+    .retour-bouton:active {
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 16px;
+      color: #6b7280;
+      font-size: 14px;
+      margin-top: 20px;
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="certification-container">
+    <div class="header">
+      <h2>MES CERTIFICATIONS PROFESSIONNELLES</h2>
+      <p>Expertise RGPD & Cybersécurité ANSSI</p>
+    </div>
+
+    <div class="certification-section">
+      <!-- Titre RGPD avec bouclier argenté -->
+      <h3 class="section-title">
+        <span class="silver-icon"><i class="fas fa-shield-alt"></i></span>
+        CERTIFICATIONS RGPD
+      </h3>
+      <div class="certification-grid">
+        <div class="certification-card">
+          <a href="rgpd1.html" target="_blank">
+            <div class="certification-header rgpd-header">
+              <i class="fas fa-certificate"></i><h4>Certification RGPD 1</h4>
+            </div>
+            <div class="certification-content">
+              <p>Maîtrise complète du Règlement Général sur la Protection des Données (RGPD) : conformité, audits, DPO.</p>
+            </div>
+          </a>
+        </div>
+        <div class="certification-card">
+          <a href="rgpd2.html" target="_blank">
+            <div class="certification-header rgpd-header">
+              <i class="fas fa-certificate"></i><h4>Certification RGPD 2</h4>
+            </div>
+            <div class="certification-content">
+              <p>Gestion des risques liés à la protection des données personnelles dans les organisations.</p>
+            </div>
+          </a>
+        </div>
+        <div class="certification-card">
+          <a href="rgpd3.html" target="_blank">
+            <div class="certification-header rgpd-header">
+              <i class="fas fa-certificate"></i><h4>Certification RGPD 3</h4>
+            </div>
+            <div class="certification-content">
+              <p>Conformité RGPD pour les systèmes d'information et les traitements automatisés.</p>
+            </div>
+          </a>
+        </div>
+        <div class="certification-card">
+          <a href="rgpd4.html" target="_blank">
+            <div class="certification-header rgpd-header">
+              <i class="fas fa-certificate"></i><h4>Certification RGPD 4</h4>
+            </div>
+            <div class="certification-content">
+              <p>Audit interne et mise en œuvre des bonnes pratiques de gouvernance RGPD.</p>
+            </div>
+          </a>
+        </div>
+        <div class="certification-card">
+          <a href="rgpd5.html" target="_blank">
+            <div class="certification-header rgpd-header">
+              <i class="fas fa-certificate"></i><h4>Certification RGPD 5</h4>
+            </div>
+            <div class="certification-content">
+              <p>Sensibilisation et formation des équipes aux exigences du RGPD.</p>
+            </div>
+          </a>
+        </div>
+        <div class="certification-card">
+          <a href="rgpd6.html" target="_blank">
+            <div class="certification-header rgpd-header">
+              <i class="fas fa-certificate"></i><h4>Certification RGPD 6</h4>
+            </div>
+            <div class="certification-content">
+              <p>Gestion des violations de données et notification aux autorités.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Titre ANSSI avec cadenas argenté -->
+      <h3 class="section-title">
+        <span class="silver-icon"><i class="fas fa-lock"></i></span>
+        CERTIFICATION ANSSI
+      </h3>
+      <div class="certification-card">
+        <a href="anssi.html" target="_blank">
+          <div class="certification-header anssi-header">
+            <i class="fas fa-lock"></i><h4>Certification ANSSI</h4>
+          </div>
+          <div class="certification-content">
+            <p>Formation avancée en cybersécurité certifiée par l'ANSSI : protection des systèmes critiques, réponse aux incidents.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">
+      Cliquez sur une certification pour consulter le détail dans un nouvel onglet.
+    </div>
+
+    <button onclick="window.history.back()" class="retour-bouton">← Retour</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Pont Aurélien - Tous droits réservés
+  </footer>
+
+</body>
+</html>

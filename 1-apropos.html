@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Présentation d'Aurélien</title>
+
+  <!-- Polices modernisées -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      color: #e2e8f0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    h1, .nav-link, .quote {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .profile-container {
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .profile-img-wrapper {
+      display: inline-block;
+      margin: 30px auto;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid #34d399;
+      object-fit: cover;
+      box-shadow: 0 20px 40px rgba(52, 211, 153, 0.2);
+    }
+
+    .profile-img-link {
+      display: block;
+      transition: transform 0.3s ease;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .profile-img-link:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: #34d399;
+      margin: 20px 0 30px 0;
+      text-shadow: 0 2px 10px rgba(52, 211, 153, 0.3);
+    }
+
+    .section {
+      margin: 30px 0;
+      text-align: left;
+      padding: 0 20px;
+      animation: fadeInUp 1s ease-out;
+      animation-delay: 0.2s;
+      animation-fill-mode: both;
+    }
+
+    .section:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    .section:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    p {
+      line-height: 1.8;
+      margin: 15px 0;
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      color: #34d399;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background: currentColor;
+      border-radius: 50%;
+      margin-right: 12px;
+    }
+
+    .section-title::after {
+      content: "•";
+      display: inline-block;
+      margin-left: 4px;
+      color: currentColor;
+    }
+
+    strong {
+      color: #64ffda;
+      font-weight: 600;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, transparent 0%, rgba(52, 211, 153, 0.3) 50%, transparent 100%);
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .fresc-block {
+      margin: 40px 0;
+      animation: fadeInUp 1s ease-out;
+      animation-delay: 0.5s;
+      animation-fill-mode: both;
+    }
+
+    .fresc-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      border: 3px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .quote {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #64ffda;
+      margin: 25px 0 0 0;
+      padding: 20px;
+      border-left: 4px solid #34d399;
+      background: rgba(52, 211, 153, 0.1);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .navigation {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
+      animation: fadeInUp 1s ease-out;
+      animation-delay: 0.6s;
+      animation-fill-mode: both;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      color: #34d399;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 30px;
+      border: 2px solid #34d399;
+    }
+
+    .nav-link:hover {
+      background: #34d399;
+      color: #0f172a;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(52, 211, 153, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: #64748b;
+      font-size: 0.9rem;
+      animation: fadeInUp 1s ease-out;
+      animation-delay: 0.7s;
+      animation-fill-mode: both;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="profile-container">
+      <div class="profile-img-wrapper">
+        <a href="https://photos.app.goo.gl/VBaWFXP3CbhgrTgV7" class="profile-img-link">
+          <img src="profile.png" alt="Photo de profil" class="profile-img">
+        </a>
+      </div>
+
+      <h1>Bonjour, je me présente Aurélien</h1>
+
+      <div class="section">
+        <div class="section-title">Parcours professionnel</div>
+        <p>
+          J'ai eu une carrière diversifiée dans le BTP avant de me reconvertir dans la poissonnerie.
+          Cependant, j'ai dû renoncer à ce dernier et j'ai décidé de me tourner vers l'informatique,
+          un domaine qui me passionne depuis toujours.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Formation</div>
+        <p>
+          J'ai confirmé mon choix lors d'une session chez <span class="highlight">Inclu'Pro</span> puis un stage avec la 
+          <span class="highlight">FRESC de Roubaix</span>, ensuite j'ai obtenu mon diplôme de 
+          <span class="highlight">Technicien d'Assistance en Informatique</span> en distanciel de 8 mois chez 
+          <span class="highlight">M2I Formation</span>.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Actuellement</div>
+        <p>
+          Je poursuis mes études en <strong>BTS SIO option SISR</strong> en alternance chez <span class="highlight">Novares</span>,
+          afin d'approfondir mes compétences et acquérir une expérience solide dans l'administration
+          des systèmes et des réseaux.
+        </p>
+      </div>
+
+      <div class="fresc-block">
+        <img src="fresc.png" alt="Image FRESC Roubaix" class="fresc-image">
+        <p class="quote">"De la matière à la donnée, chaque métier a posé une brique de mon parcours."</p>
+      </div>
+
+      <div class="navigation">
+        <a href="0-index.html" class="nav-link">
+                <svg class="icon-arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M10 8a.5.5 0 0 0-.5-.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H9.5A.5.5 0 0 0 10 8z"/>
+                </svg>
+                Retour à l'accueil
+            </a>
+      </div>
+
+      <footer>
+        &copy; 2025 Aurélien - Tous droits réservés
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

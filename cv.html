@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV - Aurélien PONT</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #f59e0b;
+      --dark-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --sidebar-bg: #1e293b;
+      --text-primary: #1f2937;
+      --text-secondary: #6b7280;
+      --text-light: #ffffff;
+      --border-color: #e5e7eb;
+      --success-color: #10b981;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+    }
+    .sidebar {
+      background: var(--sidebar-bg);
+      color: var(--text-light);
+      padding: 30px 25px;
+    }
+    .main-content {
+      padding: 30px;
+      background: var(--card-bg);
+    }
+    .profile-section {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5em;
+      color: white;
+      margin: 0 auto 20px;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    h1 {
+      font-size: 2.2em;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+    .job-title-main {
+      color: var(--accent-color);
+      font-size: 1.1em;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+    .contact-section {
+      margin-bottom: 25px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.9em;
+    }
+    .contact-item i {
+      color: var(--primary-color);
+      width: 18px;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 1.3em;
+      font-weight: 600;
+      margin: 25px 0 15px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sidebar .section-title {
+      color: var(--text-light);
+      border-bottom-color: var(--primary-color);
+    }
+    .main-content .section-title {
+      color: var(--text-primary);
+      border-bottom-color: var(--primary-color);
+    }
+    .section-title:first-child {
+      margin-top: 0;
+    }
+    .section-title i {
+      color: var(--primary-color);
+    }
+    .skill-category {
+      margin-bottom: 25px;
+    }
+    .skill-category h3 {
+      color: var(--accent-color);
+      font-size: 1em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .skill-list {
+      list-style: none;
+    }
+    .skill-list li {
+      padding: 6px 0;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9em;
+      position: relative;
+      padding-left: 15px;
+    }
+    .skill-list li::before {
+      content: '⚡';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-size: 0.8em;
+    }
+    .education-item, .cert-item {
+      margin-bottom: 15px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .education-item:last-child, .cert-item:last-child {
+      border-bottom: none;
+    }
+    .edu-title {
+      color: var(--text-light);
+      font-weight: 600;
+      font-size: 0.95em;
+      margin-bottom: 5px;
+    }
+    .edu-school {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85em;
+      margin-bottom: 3px;
+    }
+    .edu-year {
+      color: var(--accent-color);
+      font-size: 0.8em;
+      font-weight: 500;
+    }
+    .interests-list {
+      list-style: none;
+    }
+    .interests-list li {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      font-size: 0.85em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .interests-list i {
+      color: var(--accent-color);
+    }
+    .experience-item {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .experience-item:last-child {
+      border-bottom: none;
+    }
+    .job-header {
+      margin-bottom: 10px;
+    }
+    .job-name {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+    .company {
+      color: var(--text-secondary);
+      font-size: 1em;
+      margin-bottom: 5px;
+      font-style: italic;
+    }
+    .period {
+      color: var(--accent-color);
+      font-size: 0.9em;
+      font-weight: 500;
+    }
+    .status-badge {
+      display: inline-block;
+      background: var(--success-color);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.75em;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+    .task-list {
+      list-style: none;
+      margin: 10px 0;
+    }
+    .task-list li {
+      padding: 3px 0;
+      position: relative;
+      padding-left: 20px;
+      color: var(--text-secondary);
+      font-size: 0.9em;
+    }
+    .task-list li::before {
+      content: '🔧';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+      font-weight: bold;
+      font-size: 0.8em;
+    }
+
+    /* === BOUTON FIXE DE RETOUR === */
+    .back-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0B8043;
+      color: #37ff9f;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(11, 128, 67, 0.4);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      border: 2px solid #37ff9f;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background: #37ff9f;
+      color: #000;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(55, 255, 159, 0.5);
+    }
+
+    .back-button i {
+      font-size: 1.1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        margin: 15px;
+      }
+      .sidebar, .main-content {
+        padding: 25px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+      .back-button {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 16px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenu du CV -->
+  <div class="container">
+    <div class="sidebar">
+      <div class="profile-section">
+        <div class="avatar">
+          <img src="1-dossiers/Avatar.png" alt="Aurélien PONT">
+        </div>
+        <h1>Aurélien PONT</h1>
+        <div class="job-title-main">Assistant Administrateur Technique Informatique</div>
+      </div>
+
+      <div class="contact-section">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>aurelienpont@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>07.60.75.64.39</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Wattrelos (59150)</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-globe"></i>
+          <span>Haut de France</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-calendar"></i>
+          <span>40 ans</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-car"></i>
+          <span>Permis B</span>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <i class="fas fa-code"></i>
+        Compétences techniques
+      </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-headset"></i> Support & Assistance</h3>
+        <ul class="skill-list">
+          <li>Support technique N1 et N2</li>
+          <li>Assistance à distance</li>
+          <li>DameWare, TeamViewer, RDS</li>
+          <li>Gestion des tickets Freshdesk</li>
+          <li>Suivi des workflows</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-desktop"></i> Systèmes & Déploiement</h3>
+        <ul class="skill-list">
+          <li>Windows (Dell, Lenovo)</li>
+          <li>Déploiement SCCM</li>
+          <li>Active Directory</li>
+          <li>DFS, Software Center</li>
+          <li>Mises à jour et correctifs</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-shield-alt" style="color: #c0c0c0;"></i> Sécurité & Réseau</h3>
+        <ul class="skill-list">
+          <li>VPN FortiClient, EMS</li>
+          <li>Authentification MFA</li>
+          <li>Cisco Meraki Wi-Fi</li>
+          <li>Gestion des droits d'accès</li>
+          <li>Configuration réseau</li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3><i class="fas fa-server"></i> Administration</h3>
+        <ul class="skill-list">
+          <li>Sauvegarde/restauration</li>
+          <li>Gestion serveurs distants</li>
+          <li>Maintenance préventive</li>
+          <li>Gestion imprimantes</li>
+        </ul>
+      </div>
+
+      <div class="section-title">
+        <i class="fas fa-certificate"></i>
+        Certifications
+      </div>
+      <div class="cert-item">
+        <div class="edu-title">MOOC ANSSI</div>
+        <div class="edu-school">Sécurité des systèmes d'information</div>
+      </div>
+      <div class="cert-item">
+        <div class="edu-title">MOOC RGPD</div>
+        <div class="edu-school">Protection des données</div>
+      </div>
+
+      <div class="section-title">
+        <i class="fas fa-heart"></i>
+        Centres d'intérêt
+      </div>
+      <ul class="interests-list">
+        <li>
+          <i class="fas fa-swimmer"></i>
+          Plongée sous-marine N3 - RIFAP
+        </li>
+        <li>
+          <i class="fas fa-utensils"></i>
+          Cuisine & Pâtisserie
+        </li>
+        <li>
+          <i class="fas fa-futbol"></i>
+          Dirigeant bénévole – Enfants Wattrelos FC
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="section-title">
+        <i class="fas fa-briefcase"></i>
+        Expériences professionnelles
+      </div>
+      <div class="experience-item">
+        <div class="job-header">
+          <div class="job-name">Assistant administrateur technique informatique</div>
+          <div class="company">Novares – Lens</div>
+          <div class="period">Depuis octobre 2024 <span class="status-badge">ACTUEL</span></div>
+        </div>
+        <ul class="task-list">
+          <li>Installation, configuration et maintenance de postes fixes et portables</li>
+          <li>Réparation de matériel informatique (tours et portables)</li>
+          <li>Déploiement automatisé d'OS et de logiciels via SCCM</li>
+          <li>Installation de logiciels et pilotes (DFS, Software Center, Internet)</li>
+          <li>Gestion d'imprimantes (locales, partagées, serveur d'impression)</li>
+          <li>Mise en place de la double authentification (MFA) sur PC et mobiles</li>
+          <li>Configuration de VPN FortiClient avec gestion via EMS</li>
+          <li>Administration des comptes, groupes et droits d'accès</li>
+          <li>Gestion des mises à jour logicielles et correctifs de sécurité</li>
+          <li>Gestion du Wi-Fi invité via Cisco Meraki</li>
+          <li>Sauvegarde/restauration de données et gestion de l'espace disque sur serveurs distants</li>
+          <li>Assistance utilisateurs à distance (DameWare, TeamViewer, RDS)</li>
+          <li>Traitement des incidents via Freshdesk</li>
+          <li>Suivi des workflows (entrées/sorties/mouvements) via SWF</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <div class="job-name">Technicien informatique</div>
+          <div class="company">FRESC – Roubaix</div>
+          <div class="period">Février 2024 – Avril 2024</div>
+        </div>
+        <ul class="task-list">
+          <li>Maintenance préventive des postes utilisateurs pour fiabilité et performance</li>
+          <li>Déploiement, configuration et personnalisation de postes de travail</li>
+          <li>Installation et retrait de matériel (PC, écrans, imprimantes, périphériques)</li>
+          <li>Création de masters et déploiement standardisé d'environnements</li>
+          <li>Diagnostic et résolution de pannes matérielles, logicielles et réseau</li>
+          <li>Configuration de switches gérés (Cisco, D-Link)</li>
+          <li>Paramétrage de routeurs Wi-Fi et réseaux associés</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <div class="job-name">Technicien informatique</div>
+          <div class="company">FRESC – Roubaix</div>
+          <div class="period">Janvier 2023</div>
+        </div>
+        <ul class="task-list">
+          <li>Mise en route de PC fixes et portables</li>
+          <li>Installation et désinstallation de logiciels</li>
+        </ul>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <div class="job-name">Poissonnier-Traiteur</div>
+          <div class="company">Auchan Retail – Haut de France</div>
+          <div class="period">2016 – 2023</div>
+        </div>
+      </div>
+
+      <div class="experience-item">
+        <div class="job-header">
+          <div class="job-name">Carreleur-Mosaïste / Plâtrier-Plaquiste</div>
+          <div class="company">BTP – Haut de France</div>
+          <div class="period">2003 – 2015</div>
+        </div>
+      </div>
+
+      <div class="section-title">
+        <i class="fas fa-graduation-cap"></i>
+        Formation
+      </div>
+      <div class="experience-item">
+        <div class="job-header">
+          <div class="job-name">BTS SIO - Solutions d'Infrastructure, Systèmes et Réseaux</div>
+          <div class="company">AFPI – Marcq-en-Barœul</div>
+          <div class="period">Depuis octobre 2024 <span class="status-badge">EN COURS</span></div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="job-header">
+          <div class="job-name">Titre professionnel Technicien d'Assistance Informatique</div>
+          <div class="company">M2I Formation</div>
+          <div class="period">2024</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="job-header">
+          <div class="job-name">CAP Poissonnier/Traiteur</div>
+          <div class="company">Campus Pro – Hellemmes</div>
+          <div class="period">2017</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="job-header">
+          <div class="job-name">CAP Carreleur/Mosaïste – CAP Plâtrier/Plaquiste</div>
+          <div class="company">BATIFORM – Hazebrouck</div>
+          <div class="period">2007 – 2009</div>
+        </div>
+      </div>
+      <div class="experience-item">
+        <div class="job-header">
+          <div class="job-name">CAP Électrotechnique (Niveau BEP)</div>
+          <div class="company">Dynah Derrick – Villeneuve d'Ascq</div>
+          <div class="period">2005</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === BOUTON FIXE DE RETOUR AU PORTFOLIO === -->
+  <a href="0-index.html" class="back-button" aria-label="Retour au portfolio">
+    <i class="fas fa-arrow-left"></i>
+    Retour au Portfolio
+  </a>
+
+</body>
+</html>

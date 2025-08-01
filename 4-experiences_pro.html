@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missions - Première Année</title>
+    
+    <!-- Polices Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Appliquer les polices */
+        h2, .mission-link, .nav-link, strong, footer {
+            font-family: 'Montserrat', sans-serif;
+        }
+        body, p, li, .mission-link {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Réinitialisation */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fond sombre élégant */
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #e2e8f0;
+            line-height: 1.8;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+
+        /* Titre principal */
+        h2 {
+            color: #34d399;
+            font-weight: 600;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Liste des missions */
+        .missions-list {
+            list-style: none;
+        }
+
+        .missions-list li {
+            margin-bottom: 18px;
+            padding: 16px 24px;
+            background: rgba(30, 41, 59, 0.4);
+            border-left: 4px solid #34d399;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .missions-list li:hover {
+            background: rgba(30, 41, 59, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Lien de mission */
+        .mission-link {
+            display: block;
+            color: #a8d8b9;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
+        }
+
+        .mission-link strong {
+            color: #34d399;
+        }
+
+        .mission-link:hover {
+            color: #34d399;
+        }
+
+        /* Bouton Retour */
+        .navigation {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #34d399;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            border: 2px solid #34d399;
+            border-radius: 30px;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link .icon-arrow {
+            fill: #0f172a;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #34d399;
+            color: #0f172a;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(52, 211, 153, 0.4);
+        }
+
+        .nav-link:hover .icon-arrow {
+            fill: #0f172a;
+            transform: translateX(-3px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #64748b;
+            font-size: 0.9rem;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Missions réalisées lors de ma première année :</h2>
+
+        <ul class="missions-list">
+            <li>
+                <a href="mission1.html" class="mission-link">
+                    <strong>Installer, configurer, maintenir et dépanner</strong> des postes de travail fixes et portables
+                </a>
+            </li>
+            <li>
+                <a href="mission2.html" class="mission-link">
+                    <strong>Déployer automatiquement des systèmes d’exploitation et logiciels</strong> via Microsoft SCCM
+                </a>
+            </li>
+            <li>
+                <a href="mission3.html" class="mission-link">
+                    <strong>Installation et configuration de logiciels et pilotes via Citrix, DFS, Software Center...</strong>
+                </a>
+            </li>
+            <li>
+                <a href="mission4.html" class="mission-link">
+                    <strong>Gérer les imprimantes locales, partagées et via un serveur d’impression</strong>
+                </a>
+            </li>
+            <li>
+                <a href="mission5.html" class="mission-link">
+                    <strong>Mettre en place la double authentification (MFA)</strong> sur PC et mobiles
+                </a>
+            </li>
+            <li>
+                <a href="mission6.html" class="mission-link">
+                    <strong>Configurer les paramètres VPN dans FortiClient</strong>, avec gestion via EMS FortiClient
+                </a>
+            </li>
+            <li>
+                <a href="mission7.html" class="mission-link">
+                    <strong>Administrer les comptes, groupes et droits d’accès</strong> (Active Directory)
+                </a>
+            </li>
+            <li>
+                <a href="mission8.html" class="mission-link">
+                    <strong>Gérer les mises à jour logicielles et appliquer les correctifs de sécurité</strong>
+                </a>
+            </li>
+            <li>
+                <a href="mission9.html" class="mission-link">
+                    <strong>Administrer les réseaux Wi-Fi invités</strong> via Cisco Meraki
+                </a>
+            </li>
+            <li>
+                <a href="mission10.html" class="mission-link">
+                    <strong>Sauvegarder et restaurer des données, gérer l’espace disque</strong> sur serveurs distants
+                </a>
+            </li>
+            <li>
+                <a href="mission11.html" class="mission-link">
+                    <strong>Assister les utilisateurs à distance</strong> (via DameWare, TeamViewer, RDS)
+                </a>
+            </li>
+            <li>
+                <a href="mission12.html" class="mission-link">
+                    <strong>Traiter les incidents et demandes</strong> via l’outil de ticketing Freshworks
+                </a>
+            </li>
+            <li>
+                <a href="mission13.html" class="mission-link">
+                    <strong>Suivre les workflows d’entrées, sorties et mouvements</strong> via ROK SWF
+                </a>
+            </li>
+        </ul>
+
+        <!-- Bouton Retour à l'accueil -->
+        <div class="navigation">
+            <a href="0-index.html" class="nav-link">
+                <svg class="icon-arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M10 8a.5.5 0 0 0-.5-.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H9.5A.5.5 0 0 0 10 8z"/>
+                </svg>
+                Retour à l'accueil
+            </a>
+        </div>
+
+        <footer>
+            &copy; 2025 Pont Aurélien - Tous droits réservés
+        </footer>
+    </div>
+</body>
+</html>

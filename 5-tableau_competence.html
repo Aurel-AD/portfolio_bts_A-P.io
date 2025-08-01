@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accéder à mon tableau de compétences</title>
+  
+  <!-- Polices Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Appliquer les polices */
+    h2, .btn-sheet, .btn-retour {
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    body, p {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Reset & fond */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 60px 20px;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      color: #34d399;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Description enrichie */
+    .description {
+      background: rgba(30, 41, 59, 0.5);
+      border-left: 4px solid #34d399;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 2rem auto;
+      text-align: left;
+      font-size: 0.98rem;
+      color: #e2e8f0;
+    }
+
+    .description strong {
+      color: #64ffda;
+    }
+
+    /* Bouton Télécharger */
+    .btn-sheet {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background-color: #34d399;
+      color: #0f172a;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 6px 15px rgba(52, 211, 153, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-sheet:hover {
+      background-color: #0f172a;
+      color: #34d399;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(52, 211, 153, 0.4);
+      border: 2px solid #34d399;
+    }
+
+    /* Bouton Retour */
+    .btn-retour {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background: transparent;
+      color: #34d399;
+      font-size: 1rem;
+      border: 2px solid #34d399;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-retour:hover {
+      background: #34d399;
+      color: #0f172a;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Accéder à mon tableau de compétences</h2>
+    <p>Cliquez sur le bouton ci-dessous pour télécharger le tableau Excel (.xlsx) :</p>
+
+    <!-- Bouton principal -->
+    <a href="tableau_bts_e4.xlsx" download class="btn-sheet">
+      📥 Télécharger le tableau (.xlsx)
+    </a>
+
+    <!-- Description enrichie -->
+    <div class="description">
+      <p><strong>Ce tableau E4</strong> présente l’ensemble des situations professionnelles que j’ai réalisées durant ma formation BTS SIO, spécialité SISR.</p>
+      <p>Chaque projet ou mission est relié à des compétences spécifiques du référentiel, que j’ai pu développer <strong>en entreprise ou en travaux pratiques</strong>.</p>
+      <p>Pour chaque expérience, un lien cliquable permet d’accéder à une description plus détaillée dans l’onglet <strong>"Mes expériences"</strong>, avec les outils utilisés, le contexte, et les résultats obtenus.</p>
+      <p>Ce tableau permet de visualiser concrètement la mise en œuvre progressive de mes compétences dans l’administration des systèmes, la gestion réseau, la sécurité informatique et le support utilisateur.</p>
+    </div>
+
+    <!-- Bouton Retour -->
+    <a href="javascript:history.back()" class="btn-retour">
+      ← Retour
+    </a>
+  </div>
+</body>
+</html>

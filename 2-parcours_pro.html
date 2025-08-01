@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Pont Aurélien</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2.8rem;
+            color: #34d399;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(52, 211, 153, 0.3);
+        }
+        .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #34d399;
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(52, 211, 153, 0.3);
+            display: inline-block;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+        li::before {
+            content: "•";
+            color: #34d399;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .date {
+            color: #34d399;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        strong {
+            color: #64ffda;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .experience-item {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid #34d399;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .experience-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #64ffda;
+            margin-bottom: 8px;
+        }
+        .company {
+            color: #94a3b8;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .skill-tag {
+            background: rgba(52, 211, 153, 0.2);
+            color: #34d399;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .navigation {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Style du bouton "Retour à l'accueil" - entouré et coloré au survol */
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #34d399;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: 2px solid #34d399;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link .icon-arrow {
+            fill: #0f172a;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #0f172a;
+            background: #34d399;
+            border-color: #34d399;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(52, 211, 153, 0.4);
+        }
+
+        .nav-link:hover .icon-arrow {
+            fill: #0f172a;
+            transform: translateX(-3px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #64748b;
+            font-size: 0.9rem;
+            padding: 20px;
+        }
+        .highlight {
+            background: linear-gradient(120deg, transparent 0%, rgba(52, 211, 153, 0.3) 50%, transparent 100%);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pont Aurélien</h1>
+            <div class="subtitle">Administrateur Systèmes et Réseaux</div>
+        </header>
+        <div class="grid-container">
+            <div class="section">
+                <h2>Expériences professionnelles</h2>
+                <div class="experience-item">
+                    <div class="experience-title">Assistant IT Administrateur Technique</div>
+                    <div class="date">Octobre 2024 - Août 2026</div>
+                    <div class="company">Alternance chez Novares, Lens</div>
+                    <ul>
+                        <li>Installation, configuration et maintenance de postes fixes et portables</li>
+                        <li>Réparation de matériel informatique (tours et portables)</li>
+                        <li>Déploiement automatisé d'OS Windows et de logiciels via SCCM</li>
+                        <li>Installation de logiciels et de pilotes (DFS, Software Center, Internet)</li>
+                        <li>Installation et gestion d'imprimantes (locales, partagées, serveur d'impression)</li>
+                        <li>Mise en place de la double authentification (MFA) sur PC et mobiles</li>
+                        <li>Configuration de VPN FortiClient avec gestion via EMS FortiClient</li>
+                        <li>Administration des comptes, groupes et droits d'accès</li>
+                        <li>Gestion des mises à jour logicielles et correctifs de sécurité</li>
+                        <li>Gestion du Wi-Fi invités via Cisco Meraki</li>
+                        <li>Sauvegarde/restauration de données et gestion de l'espace disque sur serveurs distants</li>
+                        <li>Assistance utilisateurs à distance (DameWare, TeamViewer, RDS)</li>
+                        <li>Traitement des incidents et des demandes via outil de ticketing avec Freshworks</li>
+                        <li>Suivi des workflows SWF (entrées/sorties/mouvements) via ROK</li>
+                    </ul>
+                    <div class="skills-list">
+                        <span class="skill-tag">SCCM</span>
+                        <span class="skill-tag">Active Directory</span>
+                        <span class="skill-tag">Freshworks</span>
+                        <span class="skill-tag">FortiClient</span>
+                        <span class="skill-tag">Cisco Meraki</span>
+                        <span class="skill-tag">DameWare</span>
+                        <span class="skill-tag">TeamViewer</span>
+                        <span class="skill-tag">DFS</span>
+                        <span class="skill-tag">ROK</span>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">Technicien Informatique</div>
+                    <div class="date">Février 2024 - Avril 2024</div>
+                    <div class="company">Stage au Lycée Saint-Rémi et Léonard-De-Vinci, Roubaix</div>
+                    <ul>
+                        <li>Gestion de la maintenance préventive des postes utilisateurs.</li>
+                        <li>Mise en place, déploiement et personnalisation des postes utilisateurs.</li>
+                        <li>Installations/désinstallations du matériel informatique (tours, écrans, imprimantes…).</li>
+                        <li>Création de master pour serveur ou poste informatique.</li>
+                        <li>Dépannages divers (réseaux, mise à jour des logiciels et hardwares).</li>
+                        <li>Configuration de switch paramétrable (CISCO, DLINK).</li>
+                        <li>Configuration de routeur Wifi (paramétrage, réseaux).</li>
+                    </ul>
+                    <div class="skills-list">
+                        <span class="skill-tag">Maintenance</span>
+                        <span class="skill-tag">Cisco</span>
+                        <span class="skill-tag">Réseau</span>
+                        <span class="skill-tag">Masterisation</span>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">Technicien Informatique</div>
+                    <div class="date">Janvier 2023</div>
+                    <div class="company">Stage Inclu'Pro au Lycée Saint-Rémi et Léonard-De-Vinci, Roubaix</div>
+                    <ul>
+                        <li>Collaboration avec l'équipe informatique pour la gestion du parc informatique.</li>
+                        <li>Mise en route de PC fixes et de PC portables.</li>
+                        <li>Installations/désinstallations des programmes, des tours d'ordinateur…</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">Poissonnier/Traiteur</div>
+                    <div class="date">2016 - 2023</div>
+                    <div class="company">Auchan Retail, Hauts-de-France</div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-title">Ouvrier Polyvalent</div>
+                    <div class="date">2003 - 2015</div>
+                    <div class="company">BTP, Hauts-de-France</div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Diplômes et formations</h2>
+                <ul>
+                    <li>
+                        <span class="date">2024 - 2026</span> 
+                        <div class="highlight">BTS SIO SISR</div> - AFPI, Marcq-en-Barœul
+                    </li>
+                    <li>
+                        <span class="date">2023 - 2024</span> 
+                        <div class="highlight">Titre professionnel en Technicien d'Assistance Informatique</div> - M2i (Distanciel)
+                    </li>
+                    <li>
+                        <span class="date">2015 - 2017</span> 
+                        <div class="highlight">CAP Poissonnier traiteur</div> - Campus Pro, Hellemmes
+                    </li>
+                    <li>
+                        <span class="date">2008 - 2009</span> 
+                        <div class="highlight">CAP Plâtrier plaquiste</div> - BATIFORM, Hazebrouck
+                    </li>
+                    <li>
+                        <span class="date">2005 - 2007</span> 
+                        <div class="highlight">CAP Carreleur mosaïste</div> - CFA, Roubaix
+                    </li>
+                    <li>
+                        <span class="date">2003 - 2005</span> 
+                        <div class="highlight">CAP Électrotechnique (niveau BEP)</div> - Dynah Derrick, Villeneuve-d'Ascq
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bouton Retour à l'accueil (avec contour et effet complet au survol) -->
+        <div class="navigation">
+            <a href="0-index.html" class="nav-link">
+                <svg class="icon-arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M10 8a.5.5 0 0 0-.5-.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H9.5A.5.5 0 0 0 10 8z"/>
+                </svg>
+                Retour à l'accueil
+            </a>
+        </div>
+
+        <footer>
+            &copy; 2025 Pont Aurélien - Tous droits réservés
+        </footer>
+    </div>
+</body>
+</html>
