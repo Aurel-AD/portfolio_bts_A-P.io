@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certification RGPD 1</title>
+  <title>Certification RGPD 4</title>
   <style>
     body {
       background-color: #000;
@@ -13,6 +13,7 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
+      font-family: 'Arial', sans-serif;
     }
 
     img {
@@ -22,24 +23,48 @@
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
 
-    .btn-retour {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 16px;
+    /* Style du bouton navigation (comme dans la page Aurélien) */
+    .navigation {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(56, 189, 248, 0.2);
     }
 
-    .btn-retour:hover {
-      background-color: #388e3c;
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      color: #34d399;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 30px;
+      border: 2px solid #34d399;
+    }
+
+    .nav-link:hover {
+      background: #34d399;
+      color: #0f172a;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(52, 211, 153, 0.3);
     }
   </style>
 </head>
 <body>
+  <!-- Image de la certification RGPD 4 -->
   <img src="RGPD4.jpg" alt="Certification RGPD 4">
-  <button onclick="history.back()" class="btn-retour">← Retour</button>
+
+  <!-- Bouton de retour stylisé -->
+  <div class="navigation">
+    <a href="7-attestation_anssi_rgpd.html" class="nav-link">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M10 8a.5.5 0 0 0-.5-.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H9.5A.5.5 0 0 0 10 8z"/>
+      </svg>
+      Retour à l'attestation RGPD
+    </a>
+  </div>
 </body>
 </html>
