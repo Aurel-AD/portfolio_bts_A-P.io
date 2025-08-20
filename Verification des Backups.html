@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification des Backups - Novares</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292f;
+            background: #f6f8fa;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            overflow: hidden;
+            border: 1px solid #d1d9e0;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #0969da, #218bff);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            opacity: 0.1;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .github-badge {
+            background: #f6f8fa;
+            border: 1px solid #d1d9e0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .github-badge-icon {
+            font-size: 1.5em;
+        }
+        
+        .info-card {
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .info-card h3 {
+            color: #1e40af;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        
+        .site-card {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .site-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .site-card h4 {
+            color: #0c4a6e;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .procedure {
+            margin-top: 32px;
+        }
+        
+        .procedure h2 {
+            color: #24292f;
+            border-bottom: 2px solid #fd7e14;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        
+        .step {
+            background: #ffffff;
+            border: 1px solid #d1d9e0;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: all 0.2s ease;
+        }
+        
+        .step:hover {
+            border-color: #fd7e14;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .step-number {
+            background: #fd7e14;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .step h3 {
+            color: #24292f;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .step-content {
+            color: #656d76;
+            line-height: 1.6;
+        }
+        
+        .visual-demo {
+            background: #f6f8fa;
+            border: 1px solid #d1d9e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            text-align: center;
+        }
+        
+        .visual-demo-icon {
+            font-size: 3em;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .visual-demo h4 {
+            color: #24292f;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .visual-demo p {
+            color: #656d76;
+            font-size: 0.9em;
+        }
+        
+        .status-indicator {
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 4px;
+            font-size: 0.875em;
+        }
+        
+        .status-ok {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+        
+        .status-failed {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+        
+        .highlight {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+        
+        .highlight strong {
+            color: #92400e;
+        }
+        
+        .tech-info {
+            background: #eff6ff;
+            border: 1px solid #3b82f6;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+        
+        .tech-info strong {
+            color: #1d4ed8;
+        }
+        
+        .image-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .procedure-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 1px solid #d1d9e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .procedure-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        
+        .image-caption {
+            margin-top: 8px;
+            font-size: 0.9em;
+            color: #656d76;
+            font-style: italic;
+            font-weight: 500;
+        }
+            background: #1f2937;
+            color: #f9fafb;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875em;
+        }
+        
+        .mock-interface .title-bar {
+            background: #374151;
+            margin: -16px -16px 12px -16px;
+            padding: 8px 16px;
+            border-radius: 8px 8px 0 0;
+            font-weight: 600;
+        }
+        
+        .mock-ticket {
+            background: #ffffff;
+            border: 1px solid #d1d9e0;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        
+        .mock-ticket-header {
+            background: #0969da;
+            color: white;
+            margin: -16px -16px 16px -16px;
+            padding: 12px 16px;
+            border-radius: 8px 8px 0 0;
+            font-weight: 600;
+        }
+        
+        .mock-backup-console {
+            background: #0d1117;
+            color: #c9d1d9;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875em;
+        }
+        
+        .backup-line {
+            margin: 4px 0;
+            padding: 4px;
+        }
+        
+        .backup-success {
+            color: #7dd3fc;
+        }
+        
+        .backup-success::before {
+            content: "✓ ";
+            color: #10b981;
+        }
+        
+        .footer {
+            background: #24292f;
+            color: #f0f6fc;
+            text-align: center;
+            padding: 24px;
+            font-size: 0.9em;
+        }
+        
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+            
+            .header {
+                padding: 24px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 24px;
+            }
+            
+            .step-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .step-number {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔄 Vérification des Backups</h1>
+            <div class="subtitle">Procédure Novares - Documentation Technique</div>
+        </div>
+        
+        <div class="content">
+            <div class="github-badge">
+                <span class="github-badge-icon">🚀</span>
+                <div>
+                    <strong>Documentation GitHub-Ready</strong><br>
+                    <small>Optimisée pour GitHub Pages et la collaboration d'équipe</small>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3>📋 Contexte de la procédure</h3>
+                <p>Vérification hebdomadaire automatisée des statuts de sauvegarde sur l'ensemble des sites Novares. Cette procédure garantit l'intégrité et la disponibilité des données critiques de l'entreprise.</p>
+            </div>
+            
+            <div class="sites-grid">
+                <div class="site-card">
+                    <h4>🏭 Site de Lens</h4>
+                    <p>Infrastructure principale</p>
+                </div>
+                <div class="site-card">
+                    <h4>🏭 Site de Libercourt</h4>
+                    <p>Infrastructure secondaire</p>
+                </div>
+                <div class="site-card">
+                    <h4>🏭 Site de Villers-Bretonneux</h4>
+                    <p>Infrastructure tertiaire</p>
+                </div>
+            </div>
+            
+            <div class="highlight">
+                <strong>🎯 Déclenchement automatique :</strong> La procédure est initiée par la réception d'un ticket via Freshdesk, système de ticketing collaboratif utilisé pour la gestion des incidents et demandes.
+            </div>
+            
+            <div class="procedure">
+                <h2>⚙️ Procédure technique détaillée</h2>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span class="step-number">1</span>
+                        <h3>Réception et analyse du ticket</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Consultation du ticket généré automatiquement par Freshdesk contenant les informations de vérification requises.</p>
+                        
+                        <div class="image-container">
+                            <img src="ticket.png" alt="Ticket Freshdesk pour vérification des backups" class="procedure-image">
+                            <div class="image-caption">📧 Ticket Freshdesk reçu pour la vérification</div>
+                        </div>
+                        
+                        <div class="tech-info">
+                            <strong>💡 Analyse :</strong> Chaque ticket précise les sites à vérifier, la période concernée et les éventuelles alertes préalables détectées par les systèmes de monitoring.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span class="step-number">2</span>
+                        <h3>Connexion sécurisée au serveur</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Établissement de la connexion via Remote Desktop Connection (RDC) vers le serveur cible.</p>
+                        
+                        <div class="image-container">
+                            <img src="rdc.png" alt="Interface de connexion Remote Desktop" class="procedure-image">
+                            <div class="image-caption">🖥️ Connexion RDC au serveur</div>
+                        </div>
+                        
+                        <div class="tech-info">
+                            <strong>🔐 Protocole de sécurité :</strong> Utilisation exclusive de connexions chiffrées avec authentification renforcée pour protéger l'accès aux systèmes critiques.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span class="step-number">3</span>
+                        <h3>Authentification multi-facteurs (MFA)</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Validation de l'identité via le système d'authentification à deux facteurs pour sécuriser l'accès.</p>
+                        
+                        <div class="image-container">
+                            <img src="mfa.png" alt="Interface d'authentification multi-facteurs" class="procedure-image">
+                            <div class="image-caption">🔐 Validation MFA requise</div>
+                        </div>
+                        
+                        <p>Cette couche de sécurité supplémentaire garantit que seuls les administrateurs autorisés peuvent accéder aux consoles de gestion des backups.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span class="step-number">4</span>
+                        <h3>Activation de la console de gestion</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Ouverture de la console administrative permettant la visualisation complète de l'état des sauvegardes.</p>
+                        <div class="image-container">
+                            <img src="console.png" alt="Console de vérification des backups" class="procedure-image">
+                            <div class="image-caption">⚡ Console des backups - Statuts de vérification</div>
+                        </div>
+                        <p>Cette console centralise toutes les informations relatives aux tâches de sauvegarde programmées et leur état d'exécution.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span class="step-number">5</span>
+                        <h3>Analyse des statuts de sauvegarde</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Examen systématique de chaque tâche de backup et classification de son état d'exécution.</p>
+                        
+                        <div class="image-container">
+                            <img src="console.png" alt="Console de vérification des backups" class="procedure-image">
+                            <div class="image-caption">📊 Console des backups - Statuts de vérification</div>
+                        </div>
+                        
+                      
+                        
+                        <div class="highlight">
+                            <strong>🎯 Validation :</strong> Dans cet exemple, aucun problème n'est détecté sur le serveur de Villers-Bretonneux. Tous les backups critiques ont été exécutés avec succès.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span class="step-number">6</span>
+                        <h3>Documentation dans la feuille de suivi</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Mise à jour de la feuille de suivi officielle avec les résultats de la vérification.</p>
+                        
+                        <div class="image-container">
+                            <img src="suivi.png" alt="Feuille de suivi des backups" class="procedure-image">
+                            <div class="image-caption">📝 Mise à jour de la feuille de suivi - Status OK</div>
+                        </div>
+                          <div style="margin: 16px 0;">
+                            <h4 style="margin-bottom: 8px;">Classification des statuts :</h4>
+                            <span class="status-ok">✅ Successful (OK)</span> - Sauvegarde exécutée avec succès<br>
+                            <span class="status-failed">❌ Failed (NOK)</span> - Échec de la sauvegarde nécessitant investigation
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9em;">
+                                <thead>
+                                    <tr style="background: #f6f8fa;">
+                                        <th style="border: 1px solid #d1d9e0; padding: 12px; text-align: left;">Site</th>
+                                        <th style="border: 1px solid #d1d9e0; padding: 12px; text-align: left;">Date</th>
+                                        <th style="border: 1px solid #d1d9e0; padding: 12px; text-align: left;">Statut</th>
+                                        <th style="border: 1px solid #d1d9e0; padding: 12px; text-align: left;">Commentaires</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="border: 1px solid #d1d9e0; padding: 12px;">Villers-Bretonneux</td>
+                                        <td style="border: 1px solid #d1d9e0; padding: 12px;">19/08/2024</td>
+                                        <td style="border: 1px solid #d1d9e0; padding: 12px;"><span class="status-ok">OK</span></td>
+                                        <td style="border: 1px solid #d1d9e0; padding: 12px;">Tous les backups exécutés avec succès</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <p>Cette documentation assure la traçabilité et permet le suivi historique des performances de sauvegarde.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-header">
+                        <span class="step-number">7</span>
+                        <h3>Clôture et archivage du ticket</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>Finalisation de la procédure avec documentation complète et fermeture du ticket dans Freshdesk.</p>
+                        
+                        <div class="image-container">
+                            <img src="end_ticket.png" alt="Ticket Freshdesk fermé" class="procedure-image">
+                            <div class="image-caption">🎫 Fermeture du ticket avec documentation complète</div>
+                        </div>
+                        
+                        <div class="tech-info">
+                            <strong>📝 Traçabilité :</strong> Chaque vérification est documentée et archivée pour assurer un suivi historique complet et faciliter les audits de conformité.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3>🔑 Points de contrôle essentiels</h3>
+                <div style="margin-top: 12px;">
+                    <div style="margin: 8px 0;">✅ <strong>Périodicité :</strong> Vérification hebdomadaire obligatoire</div>
+                    <div style="margin: 8px 0;">✅ <strong>Couverture :</strong> Contrôle systématique des trois sites</div>
+                    <div style="margin: 8px 0;">✅ <strong>Sécurité :</strong> Authentification MFA requise</div>
+                    <div style="margin: 8px 0;">✅ <strong>Documentation :</strong> Traçabilité complète via Freshdesk</div>
+                    <div style="margin: 8px 0;">✅ <strong>Escalade :</strong> Procédure d'alerte en cas d'échec détecté</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
