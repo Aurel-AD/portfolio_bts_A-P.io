@@ -189,11 +189,24 @@
       color: #64ffda;
       font-weight: 600;
     }
+
+    .alert {
+      background: rgba(255, 193, 7, 0.2);
+      border: 1px solid rgba(255, 193, 7, 0.5);
+      border-radius: 8px;
+      padding: 15px;
+      margin: 20px 0;
+      color: #ffd54f;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Ma Veille Technologique</h1>
+    
+    <div class="alert">
+      <strong>Note importante :</strong> Pour que les liens fonctionnent sur GitHub Pages, assurez-vous que vos fichiers s'appellent exactement comme indiqué dans les liens (respectez la casse) et qu'ils sont à la racine de votre dépôt.
+    </div>
     
     <div class="section">
       <h2>Mes Veilles Technologiques</h2>
@@ -203,14 +216,14 @@
           <span class="card-icon">🖨️</span>
           <div class="card-title">Veille 1</div>
           <div>Imprimantes 3D & 4D</div>
-          <a href="./veille_printers.htm" class="card-link" target="_blank">Accéder à la veille</a>
+          <a href="veille_printers.html" class="card-link">Accéder à la veille</a>
         </div>
         
         <div class="card">
           <span class="card-icon">☁️</span>
           <div class="card-title">Veille 2</div>
           <div>Cloud Computing</div>
-          <a href="./veille_cloud.htm" class="card-link" target="_blank">Accéder à la veille</a>
+          <a href="veille_cloud.html" class="card-link">Accéder à la veille</a>
         </div>
       </div>
     </div>
@@ -230,7 +243,7 @@
     </div>
     
     <div class="navigation">
-       <a href="0-index.html" class="nav-link">
+       <a href="index.html" class="nav-link">
         <svg class="icon-arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
         <path d="M10 8a.5.5 0 0 0-.5-.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H9.5A.5.5 0 0 0 10 8z"/>
         </svg>
@@ -244,5 +257,3 @@
   </div>
 </body>
 </html>
-
-
