@@ -60,7 +60,19 @@
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       font-weight: 300;
     }
+    
+    /* Animation du curseur clignotant */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
 
+h1::after {
+  content: "_";
+  color: #40e0d0;
+  opacity: 1;
+  animation: blink 1s step-end infinite;
+}
     .highlight {
       color: #40e0d0;
       font-weight: 600;
@@ -144,9 +156,6 @@
     li {
       margin: 12px 0;
     }
-
-    /* On supprime les styles précédents qui forçaient la puce personnalisée */
-    /* (plus de list-style: none ni de ::before avec '•') */
 
     figure {
       margin: 40px 0;
@@ -393,7 +402,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>Veille Technologique sur :<br><span class="highlight">Les imprimantes 3D et 4D</span></h1>
+      <h1>Veille Technologique sur :<br><span class="highlight">Les imprimantes 3D et 4D _</span></h1>
     </header>
 
     <div class="content">
@@ -741,6 +750,7 @@
   </script>
 </body>
 </html>
+
 
 
 
