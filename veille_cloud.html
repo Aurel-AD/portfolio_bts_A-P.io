@@ -107,23 +107,6 @@
       cursor: pointer;
     }
 
-    .image-controls {
-      text-align: center;
-      margin: 10px 0;
-    }
-    .toggle-size {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.8em;
-    }
-    .toggle-size:hover {
-      background-color: #2980b9;
-    }
-
     .image-placeholder {
       display: none; /* replaced by real images */
     }
@@ -162,48 +145,44 @@
   <!-- 1. L'évolution du cloud computing -->
   <h2 id="evolution">L'évolution du cloud computing</h2>
 
-  <!-- Image: vaguelettes.png avec contrôle de taille -->
-  <div class="image-controls">
-    <button class="toggle-size" onclick="toggleImageSize('vaguelettes')">Ajuster la taille de l'image</button>
-  </div>
   <figure>
     <img id="vaguelettes" src="images/vaguelettes.png" alt="Les vaguelettes de l'ère de l'information" class="zoomable" />
     <figcaption>Les vaguelettes de l'ère de l'information</figcaption>
   </figure>
 
-	<!-- 2. Définition -->
-	<h2 id="definition">Définition :</h2>
-	<p>
-	Le <strong>cloud computing</strong>, ou « informatique dans les nuages », désigne
-	l'utilisation de <strong>serveurs distants</strong> pour stocker, traiter et partager des données,
-	des applications ou des services. Au lieu de disposer d'une infrastructure
-	informatique interne (serveurs, stockage, maintenance), les utilisateurs et les
-	entreprises accèdent à ces ressources via Internet, le plus souvent à travers
-	un navigateur web.
-	</p>
+  <!-- 2. Définition -->
+  <h2 id="definition">Définition :</h2>
+  <p>
+    Le <strong>cloud computing</strong>, ou « informatique dans les nuages », désigne
+    l'utilisation de <strong>serveurs distants</strong> pour stocker, traiter et partager des données,
+    des applications ou des services. Au lieu de disposer d'une infrastructure
+    informatique interne (serveurs, stockage, maintenance), les utilisateurs et les
+    entreprises accèdent à ces ressources via Internet, le plus souvent à travers
+    un navigateur web.
+  </p>
 
-	<p>
-	Ce modèle, comparable à la révolution de l'électricité évoquée par Nicholas G.
-	Carr dans <em>The Big Switch</em>, repose sur la mutualisation des ressources :
-	plutôt que chaque organisation gère son propre « générateur » informatique,
-	elle se branche au cloud, ce qui permet <strong>d'économiser, de gagner en
-	flexibilité et de simplifier la gestion</strong>.
-	</p>
+  <p>
+    Ce modèle, comparable à la révolution de l'électricité évoquée par Nicholas G.
+    Carr dans <em>The Big Switch</em>, repose sur la mutualisation des ressources :
+    plutôt que chaque organisation gère son propre « générateur » informatique,
+    elle se branche au cloud, ce qui permet <strong>d'économiser, de gagner en
+    flexibilité et de simplifier la gestion</strong>.
+  </p>
 
-	<p>
-	De nombreux services du quotidien reposent déjà sur le cloud : messageries
-	(Gmail, Outlook), stockage et partage de fichiers (Google Drive, OneDrive,
-	Dropbox), suites collaboratives (Office 365, Google Docs), ou encore
-	plateformes de divertissement (YouTube, Spotify, Deezer).
-	</p>
+  <p>
+    De nombreux services du quotidien reposent déjà sur le cloud : messageries
+    (Gmail, Outlook), stockage et partage de fichiers (Google Drive, OneDrive,
+    Dropbox), suites collaboratives (Office 365, Google Docs), ou encore
+    plateformes de divertissement (YouTube, Spotify, Deezer).
+  </p>
 
-	<p>
-	Pour les entreprises, le cloud représente un levier stratégique : il améliore
-	la productivité, soutient l'innovation et permet d'accéder à des ressources
-	informatiques à la demande. Toutefois, des défis subsistent, notamment en
-	matière de <strong>sécurité des données</strong> et de <strong>continuité de service</strong>, qui
-	freinent encore son adoption massive.
-	</p>
+  <p>
+    Pour les entreprises, le cloud représente un levier stratégique : il améliore
+    la productivité, soutient l'innovation et permet d'accéder à des ressources
+    informatiques à la demande. Toutefois, des défis subsistent, notamment en
+    matière de <strong>sécurité des données</strong> et de <strong>continuité de service</strong>, qui
+    freinent encore son adoption massive.
+  </p>
 
   <!-- 3. Avantages -->
   <h2 id="avantages">Avantage :</h2>
@@ -247,10 +226,7 @@
     <li><strong>DRaaS</strong> : la reprise après sinistre en tant que service est un modèle de cloud computing qui offre des protections contre les catastrophes naturelles (ou artificielles).</li>
   </ul>
   
-  <!-- Image: modele.png avec contrôle de taille -->
-  <div class="image-controls">
-    <button class="toggle-size" onclick="toggleImageSize('modele')">Ajuster la taille de l'image</button>
-  </div>
+  <!-- Image: modele.png -->
   <figure>
     <img id="modele" src="images/modele.png" alt="Modèle des types d'outils de cloud" class="zoomable" />
     <figcaption>Schéma récapitulatif des modèles de services cloud</figcaption>
@@ -368,10 +344,7 @@
     <li><strong>Migrations :</strong> faites directement en interne chez Google.</li>
   </ul>
 
-  <!-- Image: comparatif.jpg avec contrôle de taille -->
-  <div class="image-controls">
-    <button class="toggle-size" onclick="toggleImageSize('comparatif')">Ajuster la taille de l'image</button>
-  </div>
+  <!-- Image: comparatif.jpg -->
   <figure>
     <img id="comparatif" src="images/comparatif.jpg" alt="Comparatif Google Apps / Office365" class="zoomable" />
     <figcaption>Comparatif Google Apps / Office 365</figcaption>
@@ -394,7 +367,7 @@
   <h3>Références :</h3>
   <ul>
     <li>Certification ISO 27001 : <a href="http://googleforworkfrance.blogspot.fr/2012/05/google-apps-recoit-la-certification-iso.html">Lien</a></li>
-    <li>Comparaison Google Apps et Microsoft Office : <a href="http://nauges.typepad.com/my_weblog/2015/02/google-apps-vs-microsoft-office-365-un-seul-vainqueur-le-cloud-première-partie-je-publie-cette-analyse-en-deux-par.html">Lien</a></li>
+    <li>Comparaison Google Apps et Microsoft Office : <a href="http://nauges.typepad.com/my_weblog/2015/02/google-apps-vs-microsoft-office-365-un-seul-vainqueur-le-cloud-premiere-partie-je-publie-cette-analyse-en-deux-par.html">Lien</a></li>
     <li>Avantages Google Apps : <a href="http://thierryvanoffe.com/20-bonnes-raisons-de-passer-a-google-apps/">Lien</a></li>
     <li>Descriptif des produits : 
       <a href="http://www.yeswecloud.fr/cloud/avantages-et-inconvenients-du-cloud-computing-2-810.html">yeswecloud</a>, 
@@ -434,36 +407,10 @@
           probe.onload = function(){ img.src = bare; };
           probe.onerror = function(){ setMissing(img); };
           probe.src = bare;
-          // Optionnel: log console pour debug
           if(window && window.console){ console.warn('[IMG Fallback]', original, '⇒', bare); }
         });
       });
     })();
-
-    // États des images (taille réduite ou normale)
-    const imageStates = {
-      vaguelettes: false,
-      modele: false,
-      comparatif: false
-    };
-
-    // Fonction pour basculer la taille des images
-    function toggleImageSize(imageId) {
-      const img = document.getElementById(imageId);
-      if (!img) return;
-      
-      if (imageStates[imageId]) {
-        // Remettre à la taille normale
-        img.style.maxWidth = '100%';
-        img.style.maxHeight = 'none';
-        imageStates[imageId] = false;
-      } else {
-        // Réduire la taille
-        img.style.maxWidth = '80%';
-        img.style.maxHeight = '70vh';
-        imageStates[imageId] = true;
-      }
-    }
 
     // Fonctionnalité de zoom modal
     const modal = document.getElementById("imageModal");
@@ -481,14 +428,12 @@
       modal.style.display = "none";
     }
 
-    // Fermer le modal en cliquant en dehors de l'image
     modal.addEventListener('click', function(event) {
       if (event.target === modal) {
         closeModal();
       }
     });
 
-    // Fermer le modal avec la touche Échap
     document.addEventListener('keydown', function(event) {
       if (event.key === "Escape") {
         closeModal();
