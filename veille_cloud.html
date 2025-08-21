@@ -25,6 +25,26 @@
       border-bottom: 2px solid var(--primary);
       padding-bottom: 10px;
     }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+
+    h1::after {
+      content: '_';
+      opacity: 1;
+      animation: blink 1s step-end infinite;
+      color: var(--primary);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
     h2 {
       border-left: 5px solid var(--primary);
       padding-left: 15px;
@@ -127,7 +147,7 @@
 </head>
 <body>
 
-  <h1>Étude des outils du Cloud Computing</h1>
+  <h1>Étude des outils du Cloud Computing _</h1>
 
   <h2>Table des matières</h2>
   <ol>
@@ -442,5 +462,6 @@
   </script>
 </body>
 </html>
+
 
 
