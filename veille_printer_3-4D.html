@@ -225,27 +225,43 @@
     }
 
     .comparison-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 25px;
-      margin-top: 25px;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
 
-    .tech-card {
-      background: rgba(30, 58, 82, 0.6);
-      padding: 25px;
-      border-radius: 12px;
-      border-left: 4px solid #40e0d0;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(64, 224, 208, 0.2);
-    }
+.tech-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 
-    .tech-card h4 {
-      color: #40e0d0;
-      margin-bottom: 20px;
-      font-size: 1.3em;
-      font-weight: 500;
-    }
+.tech-card h4 {
+  color: #00c2c7;
+  margin-bottom: 5px;
+}
+
+.tech-card p {
+  font-size: 0.95em;
+  margin-bottom: 10px;
+}
+
+.tech-card img {
+  width: 100%;
+  height: auto;
+  max-height: 250px;   /* augmente si tu veux des images plus hautes */
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 10px 0;
+}
+
+.tech-card figcaption {
+  font-size: 0.85em;
+  color: #ccc;
+  margin-top: 5px;
+}
 
     .footer-links {
       background: rgba(64, 224, 208, 0.1);
@@ -573,67 +589,43 @@
         </figure>
       </section>
 
-      <section id="avenir">
-        <h2>6. Aujourd'hui et demain ?</h2>
-      
-        <div class="comparison-grid">
-          <div class="tech-card">
-            <figure>
-              <div class="image-placeholder">
-                <div>
-                  <h4>Organes bio-imprimés</h4>
-                  <p>Mini foie créé en 90 jours</p>
-                </div>
-              </div>
-              <img src="foie.jpg" alt="Mini foie bio-imprimé en 3D">
-              <figcaption>Le mini foie a été bio-imprimé en 90 jours (crédits photo : Agência FAPESP).</figcaption>
-            </figure>
-          </div>
-      
-          <div class="tech-card">
-            <figure>
-              <div class="image-placeholder">
-                <div>
-                  <h4>Maisons imprimées</h4>
-                  <p>Construction en quelques jours</p>
-                </div>
-              </div>
-              <img src="maison.jpg" alt="Maison entièrement imprimée en 3D">
-              <figcaption>Maisons construites en quelques jours grâce à l'impression 3D.</figcaption>
-            </figure>
-          </div>
-      
-          <div class="tech-card">
-            <figure>
-              <div class="image-placeholder">
-                <div>
-                  <h4>Cuisine 3D</h4>
-                  <p>Pâtisseries personnalisées</p>
-                </div>
-              </div>
-              <img src="four.jpeg" alt="Impression 3D alimentaire : pâtisserie ou chocolat">
-              <figcaption>Création de pâtisseries ou plats personnalisés par impression 3D.</figcaption>
-            </figure>
-          </div>
-      
-          <div class="tech-card">
-            <figure>
-              <div class="image-placeholder">
-                <div>
-                  <h4>Vêtements intelligents</h4>
-                  <p>Adaptation automatique à la météo</p>
-                </div>
-              </div>
-              <img src="habit.png" alt="Vêtement ou chaussure 4D s'adaptant à l'environnement">
-              <figcaption>Vêtements intelligents capables de réagir à la température ou à l'humidité.</figcaption>
-            </figure>
-          </div>
-        </div>
-      
-        <p style="margin-top: 30px; font-size: 1.1em; text-align: center;">
-          L'impression 3D et 4D sont promises à un bel avenir, avec des applications toujours plus concrètes.
-        </p>
-      </section>
+     <section id="avenir">
+  <h2>6. Aujourd'hui et demain ?</h2>
+
+  <div class="comparison-grid">
+    <div class="tech-card">
+      <h4>Organes bio-imprimés</h4>
+      <p>Mini foie créé en 90 jours</p>
+      <img src="foie.jpg" alt="Mini foie bio-imprimé en 3D">
+      <figcaption>Le mini foie a été bio-imprimé en 90 jours (crédits photo : Agência FAPESP).</figcaption>
+    </div>
+
+    <div class="tech-card">
+      <h4>Maisons imprimées</h4>
+      <p>Construction en quelques jours</p>
+      <img src="maison.jpg" alt="Maison entièrement imprimée en 3D">
+      <figcaption>Maisons construites en quelques jours grâce à l'impression 3D.</figcaption>
+    </div>
+
+    <div class="tech-card">
+      <h4>Cuisine 3D</h4>
+      <p>Pâtisseries personnalisées</p>
+      <img src="four.jpeg" alt="Impression 3D alimentaire : pâtisserie ou chocolat">
+      <figcaption>Création de pâtisseries ou plats personnalisés par impression 3D.</figcaption>
+    </div>
+
+    <div class="tech-card">
+      <h4>Vêtements intelligents</h4>
+      <p>Adaptation automatique à la météo</p>
+      <img src="habit.png" alt="Vêtement ou chaussure 4D s'adaptant à l'environnement">
+      <figcaption>Vêtements intelligents capables de réagir à la température ou à l'humidité.</figcaption>
+    </div>
+  </div>
+
+  <p style="margin-top: 30px; font-size: 1.1em; text-align: center;">
+    L'impression 3D et 4D sont promises à un bel avenir, avec des applications toujours plus concrètes.
+  </p>
+</section>
 
       <section id="ressources">
         <h2>7. Pour aller plus loin</h2>
@@ -749,6 +741,7 @@
   </script>
 </body>
 </html>
+
 
 
 
