@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Étude des outils du Cloud Computing</title>
+  <style>
+    :root {
+      --primary: #3498db;
+      --text: #333;
+      --muted: #7f8c8d;
+      --bg: #f9f9f9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      margin: 40px;
+      background-color: var(--bg);
+    }
+    h1, h2, h3, h4 { color: #2c3e50; }
+    h1 {
+      text-align: center;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 10px;
+    }
+    h2 {
+      border-left: 5px solid var(--primary);
+      padding-left: 15px;
+      margin-top: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table, th, td { border: 1px solid #ccc; }
+    th, td { padding: 10px; text-align: left; }
+    th { background-color: #ecf0f1; }
+    ul, ol { margin: 15px 0; padding-left: 30px; }
+    .footnote { font-size: 0.9em; color: #666; font-style: italic; }
+
+    /* Media heading with icon on the left */
+    .media {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .media img.icon { width: 32px; height: 32px; object-fit: contain; }
+    .media h3 { margin: 0; }
+
+    /* Figures for images */
+    figure { margin: 20px 0; }
+    figure img { width: 100%; height: auto; display: block; border-radius: 8px; }
+    figcaption { text-align: center; font-size: 0.9em; color: var(--muted); margin-top: 6px; }
+
+    .image-placeholder {
+      display: none; /* replaced by real images */
+    }
+
+    footer { margin-top: 50px; text-align: right; font-style: italic; color: var(--muted); }
+    @media (max-width: 600px) { body { margin: 20px; } }
+      /* Reserve space even if image fails to load */
+    .media img.icon { flex: 0 0 32px; }
+    .missing-icon { opacity: 0.7; filter: grayscale(1); }
+  </style>
+</head>
+<body>
+
+  <h1>Étude des outils du Cloud Computing</h1>
+
+  <h2>Table des matières</h2>
+  <ol>
+    <li><a href="#evolution">L’évolution du cloud computing</a></li>
+    <li><a href="#definition">Définition</a></li>
+    <li><a href="#avantages">Avantage</a></li>
+    <li><a href="#securite">Critères de sécurité d'un cloud</a></li>
+    <li><a href="#inconvenients">Inconvénients</a></li>
+    <li><a href="#types-outils">Différents types d'outils de cloud</a></li>
+    <li><a href="#types-offres">Types d’offres des services Cloud</a></li>
+    <li><a href="#comparaison">Comparaison d’offres de services cloud</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ol>
+
+  <!-- 1. L’évolution du cloud computing -->
+  <h2 id="evolution">L’évolution du cloud computing</h2>
+
+  <!-- Image: vaguelettes.png -->
+  <figure>
+    <img src="images/vaguelettes.png" alt="Les vaguelettes de l’ère de l’information" />
+    <figcaption>Les vaguelettes de l’ère de l’information</figcaption>
+  </figure>
+
+	<!-- 2. Définition -->
+	<h2 id="definition">Définition :</h2>
+	<p>
+	Le <strong>cloud computing</strong>, ou « informatique dans les nuages », désigne
+	l’utilisation de <strong>serveurs distants</strong> pour stocker, traiter et partager des données,
+	des applications ou des services. Au lieu de disposer d’une infrastructure
+	informatique interne (serveurs, stockage, maintenance), les utilisateurs et les
+	entreprises accèdent à ces ressources via Internet, le plus souvent à travers
+	un navigateur web.
+	</p>
+
+	<p>
+	Ce modèle, comparable à la révolution de l’électricité évoquée par Nicholas G.
+	Carr dans <em>The Big Switch</em>, repose sur la mutualisation des ressources :
+	plutôt que chaque organisation gère son propre « générateur » informatique,
+	elle se branche au cloud, ce qui permet <strong>d’économiser, de gagner en
+	flexibilité et de simplifier la gestion</strong>.
+	</p>
+
+	<p>
+	De nombreux services du quotidien reposent déjà sur le cloud : messageries
+	(Gmail, Outlook), stockage et partage de fichiers (Google Drive, OneDrive,
+	Dropbox), suites collaboratives (Office 365, Google Docs), ou encore
+	plateformes de divertissement (YouTube, Spotify, Deezer).
+	</p>
+
+	<p>
+	Pour les entreprises, le cloud représente un levier stratégique : il améliore
+	la productivité, soutient l’innovation et permet d’accéder à des ressources
+	informatiques à la demande. Toutefois, des défis subsistent, notamment en
+	matière de <strong>sécurité des données</strong> et de <strong>continuité de service</strong>, qui
+	freinent encore son adoption massive.
+	</p>
+
+  <!-- 3. Avantages -->
+  <h2 id="avantages">Avantage :</h2>
+  <p>Tout d’abord, le cloud computing simplifie les usages en permettant d’accéder plus rapidement aux ressources IT via un simple portail Web, donc sans investir en équipements matériels supplémentaires. C’est au fournisseur Cloud de maintenir le matériel serveur, le stockage et les réseaux. Il constitue également une autre forme de sauvegarde. Il permet de faire des économies, en permettant de démarrer une activité professionnelle sans avoir à investir, ou bien d’augmenter les ressources pour gérer des pics d’activités. En effet, l’entreprise peut ajuster son infrastructure en fonction de ses besoins et, en payant uniquement ce qu’ils consomment, elle réduit donc considérablement ses investissements IT, en optimisant ses coûts de fonctionnement et d’exploitation. De plus, il permet de garantir les accès et la disponibilité des services. Les utilisateurs doivent pouvoir accéder à leurs applications et à leurs données sans interruption de service. La disponibilité de service offerte par un fournisseur de service Cloud doit se situer entre 98 et 99,99 %, en comptant les temps d’arrêt des serveurs pour maintenance ou pour des interruptions inattendues. Le cloud computing apporte également un bonus de sécurité. Les entreprises sont aujourd’hui de moins en moins capables d’assurer pleinement la sécurité de leur propre système d’exploitation, surtout pour les PME. En revanche, grâce au cloud computing qui garantit une sécurité en possédant les meilleurs dispositifs et services de sécurité avec des mises à jour et des audits réguliers. D’autre part, il est préférable d’utiliser un cloud computing français, car il est plus rassurant de savoir que ces données sont stockées en France et de bénéficier de la législation française sur la protection des données.</p>
+
+  <!-- 4. Critères de sécurité -->
+  <h2 id="securite">Critères de sécurité d'un cloud :</h2>
+  <p>Nous allons étudier les différents aspects de la sécurité des données :</p>
+  <ul>
+    <li><strong>Le chiffrement dans le Cloud :</strong> nous pouvons utiliser le chiffrement des données pour le stockage et la sécurité dans le Cloud.</li>
+    <li><strong>L’intégrité des données :</strong> il est nécessaire d’assurer l’intégrité des données pendant un transfert ou un stockage. Ce qui permet de contrôler l’autorisation des opérations à effectuer.</li>
+    <li><strong>Le stockage :</strong> est un point important. Les données peuvent être transférées entre plusieurs « data centers » ou serveurs distants, la position de ces données n’est pas connue des clients.</li>
+    <li><strong>La confidentialité des données :</strong> doit être sécurisée. Les clients doivent connaitre les informations qui sont stockées et celles qui ont été supprimées. Les informations de type bancaire doivent être sécurisées et transmises qu’à l’autorité chargée des régulations.</li>
+  </ul>
+
+  <!-- 5. Inconvénients -->
+  <h2 id="inconvenients">Inconvénients</h2>
+  <p>Nous venons de constater que le premier inconvénient vient en termes de sécurité : les données sont parfois stockées à l’étranger et aucun accès physique n’est disponible pour ces données. Parfois, les données ne sont pas sauvegardées sur plusieurs unités de stockage, ce qui peut éventuellement entraîner la perte de ces données. Une connexion Internet performante est également obligatoire. Si le lieu est éloigné ou que le débit n’est pas assez élevé, une offre Cloud ne sera pas adaptée à votre entreprise. Dans le cas d’une coupure de connexion, l’entreprise serait privée de ces données. Une optimisation des applications est aussi nécessaire, car certaines applications web peuvent être très lentes et impacter l’exploitation. Les coûts du cloud computing ne viennent pas que des frais de stockage, mais aussi des frais de transferts. Il faut également prendre en compte la pérennité du service, car le changement d’hébergeur peut prendre du temps et nécessiter un recodage des données et des applications. Le cloud computing s’adresse autant aux particuliers qu’aux professionnels sur des plateformes gratuites ou payantes selon le besoin de capacité de stockage de l’utilisateur.</p>
+
+  <!-- 6. Différents types d'outils de cloud -->
+  <h2 id="types-outils">Différents types d'outils de cloud :</h2>
+  <ul>
+    <li><strong>IaaS : Infrastructure as a Service</strong><br>
+      Seul le matériel qui constitue l’infrastructure est hébergé chez le prestataire. L’entreprise bénéficie donc d’une infrastructure mutualisée et automatisée. Elle peut donc diminuer ou augmenter ses ressources IT en fonction de ses besoins (fourniture de : firewall, routeur, serveurs, NAS/SAN).
+    </li>
+    <li><strong>PaaS : Platform as a Service</strong><br>
+      C’est un modèle qui complète l’IaaS en offrant aux entreprises une plateforme de développement en mode cloud. Il fournit également des langages de programmation, des bases de données et des services permettant de faire fonctionner leurs applications. Il permet également d’automatiser le déploiement des mises à jour et correctifs.
+    </li>
+    <li><strong>SaaS : Software as a Service</strong><br>
+      Le modèle SaaS fournit des applications à l’utilisateur sous la forme d’un service prêt à l’emploi qui ne nécessite aucune maintenance, les mises à jour sont régulièrement faites par les éditeurs. (PaaS + applications)
+    </li>
+    <li><strong>FaaS : informatique sans serveur</strong><br>
+      L'informatique sans serveur utilisée dans les modèles de service cloud est également appelée "function as a service" (FaaS). Il s'agit d'un modèle de service cloud relativement nouveau qui fournit des solutions permettant de créer des applications aussi simples que des fonctions déclenchées par des événements, sans avoir à gérer ni à faire évoluer l'infrastructure.
+    </li>
+  </ul>
+  <p><strong>Autres services importants en tant que services :</strong></p>
+  <ul>
+    <li><strong>MaaS</strong> : signifie surveillance en tant que service. Il permet au consommateur de surveiller l'état de ses applications critiques, quel que soit son emplacement.</li>
+    <li><strong>CaaS</strong> : la communication en tant que service utilise les VPN, la VoIP, le PBX et les communications unifiées de niveau entreprise parmi les investissements coûteux d’hébergement, d’achat et de gestion de l’infrastructure informatique. Cela vous permet également de réduire les CAPEX et les OPEX.</li>
+    <li><strong>DaaS</strong> : Desktop as a Service garantit une expérience fiable et cohérente pour l’utilisation à distance de programmes, d’applications et de fichiers n’importe où et à tout moment.</li>
+    <li><strong>DRaaS</strong> : la reprise après sinistre en tant que service est un modèle de cloud computing qui offre des protections contre les catastrophes naturelles (ou artificielles).</li>
+  </ul>
+  <!-- Image: modele.png at the end of this section -->
+  <figure>
+    <img src="images/modele.png" alt="Modèle des types d'outils de cloud" />
+    <figcaption>Schéma récapitulatif des modèles de services cloud</figcaption>
+  </figure>
+
+  <!-- 7. Types d’offres des services Cloud -->
+  <h2 id="types-offres">Types d’offres des services Cloud :</h2>
+
+  <div class="media">
+    <img class="icon" src="images/itinsell.png" alt="Icône ITinsell" loading="lazy" />
+    <h3>ITinsell :</h3>
+  </div>
+  <p>ITinsell, anciennement ASP SERVEUR, est le propriétaire du datacenter haute densité le plus moderne de France. Il héberge le plus important Cube ISX APC de France (environnement d’hébergement de très haute densité). C’est le premier hébergeur écologique d’Europe grâce à l’utilisation des toutes dernières technologies APC. L’utilisation conjuguée de climatiseurs de précision et des meilleurs onduleurs réduit leur empreinte énergétique de 40 % par rapport aux autres datacenters traditionnels. La disponibilité garantie, accompagnée d’un contrat SLA (service-level agreement), fait qu'il est aujourd’hui le seul hébergeur capable de proposer une disponibilité contractuelle garantie à 100 %.</p>
+
+  <div class="media">
+    <img class="icon" src="images/dropbox.png" alt="Icône Dropbox" loading="lazy" />
+    <h3>Dropbox :</h3>
+  </div>
+  <p>C’est la solution la plus populaire, c’est un des premiers à proposer ce type d’offre au public. À l’aide de son système de parrainage permettant au parrain et au filleul d’augmenter leur capacité de stockage, il propose également une interface Web efficace comprise avec diverses applications. Sa capacité de stockage est limitée à 18 Go avec le système de parrainage (ou 2 Go sans) pour le stockage gratuit. On peut étendre son abonnement payant à partir de 9,99 $ par mois pour 100 Go de stockage.</p>
+  <p><strong>Avantage :</strong> la facilité d’augmenter son stockage grâce au système de parrainage.</p>
+  <p><strong>Inconvénients :</strong> espace de stockage trop faible (2 Go) au début et pas d’offre payante inférieure à 10 $. La gestion des dossiers communs entre utilisateurs est également compliquée.</p>
+
+  <div class="media">
+    <img class="icon" src="images/drive.png" alt="Icône Google Drive" loading="lazy" />
+    <h3>Google Drive :</h3>
+  </div>
+  <p>Google a réussi à développer une solution performante, bien intégrée à ses services. C’est un outil de suite logicielle et d’applications mobiles. Il propose une visionneuse de fichiers parmi les plus performantes, son intégration à Gmail en fait un très bon outil pour les utilisateurs d’un compte. Sa partie de stockage gratuite est de 15 Go pour les nouveaux utilisateurs. 25 Go sont disponibles pour 2,49 $ par mois.</p>
+  <p><strong>Avantage :</strong> facilité d’utilisation grâce aux liens avec les autres services Google et à l’excellente visionneuse de fichiers.</p>
+  <p><strong>Inconvénient :</strong> les anciens utilisateurs gratuits ne disposent que de 5 Go sans pouvoir l’augmenter pour les 15 Go des nouveaux utilisateurs.</p>
+
+  <div class="media">
+    <img class="icon" src="images/mega.png" alt="Icône MEGA" loading="lazy" />
+    <h3>MEGA :</h3>
+  </div>
+  <p>Le service successeur de MegaUpload qui a connu des débuts difficiles (problème d’interface, instabilité) et ce malgré son offre de stockage gratuite de 50 Go, a aujourd’hui évolué. La solution MEGA, ultra-sécurisée, fournit une suite logicielle très riche (MegaUploader, MegaDownloader) qui permet de visionner de nombreux fichiers, dont les vidéos.</p>
+  <p><strong>Version gratuite :</strong> 50 Go / <strong>version payante :</strong> à partir de 9,99 € par mois pour 500 Go.</p>
+  <p><strong>Avantage :</strong> grand espace de stockage en version gratuite ou payante, optimisation de sa sécurité, interface et fonctionnalités.</p>
+  <p><strong>Inconvénient :</strong> pas de logiciel officiel dédié. Nécessite un certain temps d’adaptation et sa sécurisation par clé peut être contraignante.</p>
+
+  <!-- 8. Comparaison d’offres de services cloud -->
+  <h2 id="comparaison">Comparaison d’offres de services cloud :</h2>
+
+  <div class="media">
+    <img class="icon" src="images/office.png" alt="Icône Office 365" loading="lazy" />
+    <h3>Office 365 :</h3>
+  </div>
+  <p>C’est la dernière version de Microsoft Office qui comprend des services cloud tels qu’OneDrive, Exchange Online, Lync online, SharePoint online … pour un abonnement mensuel ou annuel. Chaque licence Office 365 est rattachée à un compte utilisateur et non plus à une machine, et chaque licence est disponible pour 5 postes par utilisateur (PC, Mac, tablettes, smartphones). La suite bureautique d’Office est également disponible dans certains abonnements.</p>
+  <p>Voici différents types d’abonnements disponibles en fonction des besoins de l’entreprise :</p>
+
+  <h4>Office 365 Business Essentials :</h4>
+  <ul>
+    <li>Pour les entreprises de moins de 300 employés</li>
+    <li>Formule 100 % cloud sans suite bureautique d’Office, mais si l’entreprise en dispose néanmoins, elle pourra l’intégrer dans l’offre.</li>
+    <li>3,80 € HT par utilisateur et par mois (engagement annuel) ou 4,60 € HT par utilisateur et par mois (engagement mensuel)</li>
+    <li>Inclus :
+      <ul>
+        <li>Office Online : suite bureautique allégée d’Office Word, Excel, Power Point, OneNote 100 % en ligne.</li>
+        <li>Exchange Online : messagerie pro 50 Go avec gestion des e-mails, calendrier, contacts, tâches.</li>
+        <li>Lync Online : service de visioconférence ou Skype pour les entreprises.</li>
+        <li>SharePoint Online : plateforme collaborative pour la conservation et le partage de données.</li>
+        <li>OneDrive : espace de stockage en ligne d’1 To par utilisateur.</li>
+        <li>Yammer : plateforme de microblogage interne.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4>Office 365 Business :</h4>
+  <ul>
+    <li>Pour les sociétés de moins de 300 employés</li>
+    <li>8,80 € par utilisateur/mois (annuel) ou 10,70 € (mensuel)</li>
+    <li>Inclus :
+      <ul>
+        <li>Suite bureautique d'Office : Word, Excel, PowerPoint, Outlook, Publisher, OneNote</li>
+        <li>OneDrive Entreprise : 1 To par utilisateur</li>
+        <li>Office Online</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h4>Office 365 Business Premium :</h4>
+  <ul>
+    <li>Pour entreprises de moins de 300 employés avec besoins avancés</li>
+    <li>9,60 € (annuel) ou 11,50 € (mensuel)</li>
+    <li>Inclus : mêmes services que Business + Exchange Online, Lync, SharePoint, Yammer</li>
+  </ul>
+
+  <h4>Office 365 Entreprise :</h4>
+  <ul>
+    <li>Pour entreprises de plus de 300 employés</li>
+    <li><strong>E1 :</strong> 6,10 €/utilisateur/mois – équivalent à Business Essentials + fonctions grandes entreprises</li>
+    <li><strong>Pro Plus :</strong> 12,90 € – suite Office 2013 + OneDrive, Office Online</li>
+    <li><strong>E3 :</strong> 18,20 € – équivalent à Business Premium + fonctions grandes entreprises</li>
+    <li><strong>E4 :</strong> 20 € – E3 + service VOIX entreprise</li>
+  </ul>
+  <p><strong>Services autonomes :</strong> tous les services sont disponibles à la carte sous forme de « plan ».</p>
+
+  <div class="media">
+    <img class="icon" src="images/google.png" alt="Icône Google Apps for Work" loading="lazy" />
+    <h3>Google Apps for Work :</h3>
+  </div>
+  <p>C’est une suite d'outils de type cloud computing proposée par Google sous la forme d’un abonnement. Elle comprend les applications web de Google (Gmail, Google Drive, Google Hangouts, Google Agenda, Google Docs…).</p>
+  <p>Ces produits sont disponibles gratuitement, mais Google Apps for Work inclut des fonctionnalités professionnelles (adresses email personnalisées, 30 Go de stockage, assistance 24/7).</p>
+  <p><strong>Prix :</strong> 40 € par utilisateur/an ou 4 € par utilisateur/mois (modulable).</p>
+
+  <h4>Principales qualités :</h4>
+  <ul>
+    <li><strong>Stockage :</strong> 25 Go pour la messagerie, stockage illimité pour les documents Google, 5 Go pour les autres.</li>
+    <li><strong>Mobilité :</strong> solution 100 % cloud.</li>
+    <li><strong>Compatibilité :</strong> accessible depuis tout appareil avec navigateur.</li>
+    <li><strong>Disponibilité :</strong> données répliquées sur plusieurs datacenters.</li>
+    <li><strong>Collaboration en temps réel :</strong> Google Docs permet la modification simultanée.</li>
+    <li><strong>Confidentialité :</strong> Google ne partage pas les données sauf indication contraire.</li>
+    <li><strong>Rapidité de déploiement :</strong> quelques jours pour des centaines de comptes.</li>
+    <li><strong>Sécurité :</strong> normes SAS 70 type II, FISMA, ISO 27001, HTTPS/SSL.</li>
+    <li><strong>Migrations :</strong> faites directement en interne chez Google.</li>
+  </ul>
+
+  <!-- Remplacement du placeholder par l'image comparatif.jpg -->
+  <figure>
+    <img src="images/comparatif.jpg" alt="Comparatif Google Apps / Office365" />
+    <figcaption>Comparatif Google Apps / Office 365</figcaption>
+  </figure>
+
+  <!-- 9. Conclusion -->
+  <h2 id="conclusion">Conclusion :</h2>
+  <p>Le cloud computing n’est pas une mauvaise chose, au contraire, il peut être très bénéfique aux PME. La diversité des offres tarifaires et des fonctionnalités proposées par les solutions cloud est très importante. Mais certains des utilisateurs trouveront le système qui lui convient le mieux en se posant quelques questions :</p>
+  <ul>
+    <li>Vais-je utiliser principalement l’interface web ou plutôt une application ?</li>
+    <li>Le partage est-il essentiel ?</li>
+    <li>Dois-je mettre à l’abri un grand volume de données ou bénéficier d’un système de synchronisation réactif ?</li>
+  </ul>
+  <p>Il faut juste bien peser le pour et le contre avant de le mettre en place et vérifier que ça n’impacterait pas négativement la productivité de l’entreprise par les formations nécessaires. Il faudra également tester les différents systèmes proposés pour pouvoir trouver celui qui nous convient le mieux en termes de qualité et de coût et également en fonction des logiciels que l’entreprise utilise.</p>
+  <ul>
+    <li><strong>Choisir Office 365 :</strong> choix pris par les entreprises qui privilégieront la continuité et l’évolution aux changements dans leur organisation. Pour la majorité des usagers, le changement sera invisible : ils continueront d’utiliser leurs logiciels (Word, Excel, Outlook…).</li>
+    <li><strong>Choisir G4W (Google Apps) :</strong> choix pris par les entreprises innovantes qui auront compris les avantages de G4W en matière de collaboration native, d’usage simple. L’accompagnement au changement pour les usagers sera la clé de la réussite.</li>
+  </ul>
+
+  <h3>Références :</h3>
+  <ul>
+    <li>Certification ISO 27001 : <a href="http://googleforworkfrance.blogspot.fr/2012/05/google-apps-recoit-la-certification-iso.html">Lien</a></li>
+    <li>Comparaison Google Apps et Microsoft Office : <a href="http://nauges.typepad.com/my_weblog/2015/02/google-apps-vs-microsoft-office-365-un-seul-vainqueur-le-cloud-première-partie-je-publie-cette-analyse-en-deux-par.html">Lien</a></li>
+    <li>Avantages Google Apps : <a href="http://thierryvanoffe.com/20-bonnes-raisons-de-passer-a-google-apps/">Lien</a></li>
+    <li>Descriptif des produits : 
+      <a href="http://www.yeswecloud.fr/cloud/avantages-et-inconvenients-du-cloud-computing-2-810.html">yeswecloud</a>, 
+      <a href="https://www.numergy.com/centre-de-ressources/article/quest-ce-que-le-cloud-computing">numergy</a>, 
+      <a href="http://fr.wikipedia.org/wiki/Cloud_computing">Wikipedia Cloud</a>, 
+      <a href="http://fr.wikipedia.org/wiki/Microsoft_Office_365">Wikipedia Office 365</a>, 
+      <a href="http://fr.wikipedia.org/wiki/Google_Apps">Wikipedia Google Apps</a>
+    </li>
+  </ul>
+
+  <footer>
+    A. PONT - BTS SIO SISR
+  </footer>
+
+  <script>
+    // Fallback pour les images: si "images/xxx.png" échoue, on tente "./xxx.png".
+    (function(){
+      function setMissing(img){
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 18H6a4 4 0 0 1-1.8-7.5A6 6 0 0 1 18 7a5 5 0 0 1 1 9.9V17a1 1 0 0 1 0 2zM8 13l2 2 3-3 4 4" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+        img.classList.add('missing-icon');
+        img.alt = (img.alt || 'icône') + ' (non trouvée)';
+      }
+      document.querySelectorAll('img').forEach(function(img){
+        var original = img.getAttribute('src') || '';
+        if(!/^images\//.test(original)) return; // ne s'applique qu'aux chemins dans /images
+        img.addEventListener('error', function handler(){
+          img.removeEventListener('error', handler);
+          var bare = original.replace(/^images\//,'');
+          var probe = new Image();
+          probe.onload = function(){ img.src = bare; };
+          probe.onerror = function(){ setMissing(img); };
+          probe.src = bare;
+          // Optionnel: log console pour debug
+          if(window && window.console){ console.warn('[IMG Fallback]', original, '⇒', bare); }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
