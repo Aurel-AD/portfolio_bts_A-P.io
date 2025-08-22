@@ -30,7 +30,6 @@
       background: var(--bg);
       padding: 40px 20px;
     }
-    /* === Progress bar === */
     #progress-bar {
       position: fixed;
       top: 0;
@@ -42,7 +41,6 @@
       transition: width 0.05s ease;
       box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
     }
-    /* === Badge veille === */
     .badge {
       position: absolute;
       top: 16px;
@@ -58,7 +56,6 @@
       letter-spacing: 0.5px;
       box-shadow: 0 2px 8px var(--shadow);
     }
-    /* === Container === */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -95,7 +92,6 @@
       color: var(--primary);
       font-weight: 600;
     }
-    /* === Navigation fixe === */
     .toc-sticky {
       position: sticky;
       top: 0;
@@ -180,8 +176,7 @@
     figure img {
       width: 100%;
       height: auto;
-      max-height: 400px;
-      object-fit: cover;
+      object-fit: contain; /* Important ! */
       border-radius: 12px;
       transition: transform 0.3s ease;
     }
