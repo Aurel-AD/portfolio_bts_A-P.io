@@ -3,99 +3,259 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Étude des outils du Cloud Computing</title>
+  <title>Veille Technologique - Cloud Computing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #3498db;
-      --text: #333;
+      --text: #2c3e50;
       --muted: #7f8c8d;
       --bg: #f9f9f9;
+      --card: #ffffff;
+      --border: #e0e0e0;
+      --shadow: rgba(0, 0, 0, 0.08);
+      --accent: #2980b9;
+      --highlight: rgba(52, 152, 219, 0.12);
+      --transition: all 0.2s ease;
     }
-    * { box-sizing: border-box; }
+
+    /* Dark mode variables */
+    :root[data-theme="dark"] {
+      --primary: #5dade2;
+      --text: #ecf0f1;
+      --muted: #bdc3c7;
+      --bg: #1a1a1a;
+      --card: #2c2c2c;
+      --border: #3a3a3a;
+      --shadow: rgba(0, 0, 0, 0.3);
+      --highlight: rgba(93, 173, 226, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: 'Arial', sans-serif;
-      line-height: 1.6;
+      font-family: 'Inter', 'Arial', sans-serif;
+      line-height: 1.7;
       color: var(--text);
-      margin: 40px;
       background-color: var(--bg);
+      padding: 0;
+      margin: 0;
+      transition: var(--transition);
     }
-    h1, h2, h3, h4 { color: #2c3e50; }
-    h1 {
-      text-align: center;
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 10px;
+
+    /* === Loader subtil === */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      animation: loading 1.5s ease-in-out infinite;
+      z-index: 9999;
+      opacity: 0;
     }
-    h1 {
-      font-size: 2.8rem;
+    @keyframes loading {
+      0% { transform: translateX(-100%); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateX(100%); opacity: 0; }
+    }
+    body.loading #loader { opacity: 1; }
+
+    /* === Header Badge === */
+    .badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: var(--primary);
+      color: white;
+      font-size: 0.8rem;
       font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px var(--shadow);
+      z-index: 10;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* === Title === */
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
       color: var(--primary);
-      margin-bottom: 15px;
+      text-align: center;
+      margin: 80px 0 20px 0;
       position: relative;
       display: inline-block;
+      transition: var(--transition);
     }
-
     h1::after {
       content: '_';
-      opacity: 1;
-      animation: blink 1s step-end infinite;
+      animation: blink 1.4s step-end infinite;
       color: var(--primary);
+      margin-left: 4px;
     }
-
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
     }
-    h2 {
-      border-left: 5px solid var(--primary);
-      padding-left: 15px;
-      margin-top: 30px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-    }
-    table, th, td { border: 1px solid #ccc; }
-    th, td { padding: 10px; text-align: left; }
-    th { background-color: #ecf0f1; }
-    ul, ol { margin: 15px 0; padding-left: 30px; }
-    .footnote { font-size: 0.9em; color: #666; font-style: italic; }
 
-    /* Media heading with icon on the left */
+    /* Tooltip sur le titre */
+    .title-tooltip {
+      position: relative;
+      cursor: help;
+    }
+    .title-tooltip:hover::after {
+      content: "Veille technologique réalisée dans le cadre du BTS SIO";
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--text);
+      color: white;
+      font-size: 0.85rem;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    /* === Navigation fixe === */
+    .toc-sticky {
+      position: sticky;
+      top: 0;
+      background: var(--card);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 999;
+      padding: 12px 20px;
+      margin: 0;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 10px var(--shadow);
+      border-radius: 0;
+    }
+    .toc-sticky ol {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      overflow-x: auto;
+      padding: 8px 0;
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .toc-sticky a {
+      color: var(--muted);
+      text-decoration: none;
+      white-space: nowrap;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: var(--transition);
+    }
+    .toc-sticky a:hover {
+      color: var(--primary);
+      background: var(--highlight);
+    }
+    .toc-sticky a.active {
+      color: var(--primary);
+      font-weight: 600;
+      background: var(--highlight);
+    }
+
+    /* === Thèmes généraux === */
+    h2 {
+      font-size: 1.6rem;
+      margin: 40px 0 20px;
+      padding-left: 16px;
+      border-left: 5px solid var(--primary);
+      color: var(--text);
+    }
+    h3 {
+      color: var(--accent);
+      margin: 24px 0 12px;
+    }
+    h4 {
+      margin: 16px 0 8px;
+      font-weight: 600;
+    }
+    p, ul, ol, table {
+      margin: 16px 0;
+      padding: 0 20px;
+    }
+    ul, ol {
+      padding-left: 40px;
+    }
+
+    /* === Media blocks === */
     .media {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-top: 24px;
+      margin: 24px 0;
+      padding: 0 20px;
     }
-    .media img.icon { width: 32px; height: 32px; object-fit: contain; }
-    .media h3 { margin: 0; }
+    .media img.icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px var(--shadow);
+    }
+    .media h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
 
-    /* Figures for images */
-    figure { 
-      margin: 20px 0; 
-      max-width: 100%;
+    /* === Tableau === */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      box-shadow: 0 1px 6px var(--shadow);
+      border-radius: 8px;
       overflow: hidden;
     }
-    figure img { 
-      width: 40%; 
-      height: auto; 
-      display: block; 
-      border-radius: 8px;
-      transition: transform 0.3s ease;
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
     }
-    figure img.zoomable:hover {
-      transform: scale(1.02);
-      cursor: zoom-in;
+    th {
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
     }
-    figcaption { 
-      text-align: center; 
-      font-size: 0.9em; 
-      color: var(--muted); 
-      margin-top: 6px; 
+    tr:hover {
+      background: var(--highlight);
     }
 
-    /* Modal for zoomed images */
+    /* === Images === */
+    figure {
+      margin: 30px 0;
+      text-align: center;
+    }
+    figure img {
+      width: 40%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px var(--shadow);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border);
+    }
+    figure img.zoomable:hover {
+      transform: scale(1.03);
+    }
+    figcaption {
+      font-size: 0.9em;
+      color: var(--muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* === Modal zoom === */
     .modal {
       display: none;
       position: fixed;
@@ -104,53 +264,102 @@
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.9);
-      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
     }
     .modal-content {
-      display: block;
-      margin: auto;
       max-width: 90%;
       max-height: 90%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      border-radius: 8px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
     }
     .close {
       position: absolute;
-      top: 15px;
-      right: 35px;
+      top: 20px;
+      right: 30px;
       color: #f1f1f1;
       font-size: 40px;
       font-weight: bold;
       cursor: pointer;
+      z-index: 1001;
     }
 
-    .image-placeholder {
-      display: none; /* replaced by real images */
+    /* === Footer === */
+    footer {
+      margin: 60px 0 40px;
+      text-align: right;
+      padding: 0 20px;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    footer { margin-top: 50px; text-align: right; font-style: italic; color: var(--muted); }
-    
-    @media (max-width: 600px) { 
-      body { margin: 20px; } 
-      figure img {
-        max-height: 50vh;
+    /* === Dark mode toggle === */
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px var(--shadow);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* === Responsive === */
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      .toc-sticky ol {
+        gap: 10px;
+        font-size: 0.85rem;
       }
+      figure img { width: 80%; }
+      p, ul, ol, table { padding: 0 16px; }
     }
-    
-    /* Reserve space even if image fails to load */
-    .media img.icon { flex: 0 0 32px; }
-    .missing-icon { opacity: 0.7; filter: grayscale(1); }
   </style>
 </head>
-<body>
+<body class="loading">
 
-  <h1>Étude des outils du Cloud Computing</h1>
+  <!-- Loader -->
+  <div id="loader"></div>
 
+  <!-- Badge Veille -->
+  <div class="badge">Veille Technologique</div>
+
+  <!-- Navigation fixe -->
+  <nav class="toc-sticky">
+    <ol id="toc-list">
+      <li><a href="#evolution">Évolution</a></li>
+      <li><a href="#definition">Définition</a></li>
+      <li><a href="#avantages">Avantages</a></li>
+      <li><a href="#securite">Sécurité</a></li>
+      <li><a href="#inconvenients">Inconvénients</a></li>
+      <li><a href="#types-outils">Types d'outils</a></li>
+      <li><a href="#types-offres">Offres</a></li>
+      <li><a href="#comparaison">Comparaison</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+    </ol>
+  </nav>
+
+  <!-- Titre avec tooltip -->
+  <h1 class="title-tooltip">Étude des outils du Cloud Computing</h1>
+
+  <!-- Table des matières (cachée visuellement mais présente pour accessibilité) -->
   <h2>Table des matières</h2>
-  <ol>
+  <ol style="display:none">
     <li><a href="#evolution">L'évolution du cloud computing</a></li>
     <li><a href="#definition">Définition</a></li>
     <li><a href="#avantages">Avantage</a></li>
@@ -162,9 +371,9 @@
     <li><a href="#conclusion">Conclusion</a></li>
   </ol>
 
+  <!-- Contenu original ci-dessous (inchangé) -->
   <!-- 1. L'évolution du cloud computing -->
   <h2 id="evolution">L'évolution du cloud computing</h2>
-
   <figure>
     <img id="vaguelettes" src="images/vaguelettes.png" alt="Les vaguelettes de l'ère de l'information" class="zoomable" />
     <figcaption>Les vaguelettes de l'ère de l'information</figcaption>
@@ -180,6 +389,8 @@
     entreprises accèdent à ces ressources via Internet, le plus souvent à travers
     un navigateur web.
   </p>
+  <!-- ... (tout le reste du texte inchangé) -->
+  <!-- Je continue à insérer le reste du contenu original -->
 
   <p>
     Ce modèle, comparable à la révolution de l'électricité évoquée par Nicholas G.
@@ -391,54 +602,81 @@
     <li>Avantages Google Apps : <a href="http://thierryvanoffe.com/20-bonnes-raisons-de-passer-a-google-apps/">Lien</a></li>
     <li>Descriptif des produits : 
       <a href="http://www.yeswecloud.fr/cloud/avantages-et-inconvenients-du-cloud-computing-2-810.html">yeswecloud</a>, 
-      <a href="https://www.numergy.com/centre-de-ressources/article/quest-ce-que-le-cloud-computing">numergy</a>, 
+      <a href="https://www.numergy.com/centre-de-ressources/article/quest-ce-que-le-cloud-computing  ">numergy</a>, 
       <a href="http://fr.wikipedia.org/wiki/Cloud_computing">Wikipedia Cloud</a>, 
       <a href="http://fr.wikipedia.org/wiki/Microsoft_Office_365">Wikipedia Office 365</a>, 
       <a href="http://fr.wikipedia.org/wiki/Google_Apps">Wikipedia Google Apps</a>
     </li>
   </ul>
 
-  <!-- Modal pour l'affichage zoomé des images -->
+  <!-- Modal -->
   <div id="imageModal" class="modal">
     <span class="close" onclick="closeModal()">&times;</span>
     <img class="modal-content" id="modalImage">
   </div>
+
+  <!-- Bouton mode sombre -->
+  <button class="theme-toggle" id="themeToggle">☀️</button>
 
   <footer>
     A. PONT - BTS SIO SISR
   </footer>
 
   <script>
-    // Fallback pour les images: si "images/xxx.png" échoue, on tente "./xxx.png".
-    (function(){
-      function setMissing(img){
-        var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 18H6a4 4 0 0 1-1.8-7.5A6 6 0 0 1 18 7a5 5 0 0 1 1 9.9V17a1 1 0 0 1 0 2zM8 13l2 2 3-3 4 4" fill="none" stroke="#7f8c8d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        img.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-        img.classList.add('missing-icon');
-        img.alt = (img.alt || 'icône') + ' (non trouvée)';
-      }
-      document.querySelectorAll('img').forEach(function(img){
-        var original = img.getAttribute('src') || '';
-        if(!/^images\//.test(original)) return; // ne s'applique qu'aux chemins dans /images
-        img.addEventListener('error', function handler(){
-          img.removeEventListener('error', handler);
-          var bare = original.replace(/^images\//,'');
-          var probe = new Image();
-          probe.onload = function(){ img.src = bare; };
-          probe.onerror = function(){ setMissing(img); };
-          probe.src = bare;
-          if(window && window.console){ console.warn('[IMG Fallback]', original, '⇒', bare); }
-        });
-      });
-    })();
+    // === Gestion du chargement ===
+    window.addEventListener('load', () => {
+      document.body.classList.remove('loading');
+      setTimeout(() => document.getElementById('loader').style.display = 'none', 600);
+    });
 
-    // Fonctionnalité de zoom modal
+    // === Mode sombre ===
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Charger le thème sauvegardé
+    if (localStorage.getItem('theme') === 'dark') {
+      body.setAttribute('data-theme', 'dark');
+      themeToggle.textContent = '🌙';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        themeToggle.textContent = '☀️';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '🌙';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // === Navigation active ===
+    const sections = document.querySelectorAll('h2[id]');
+    const navLinks = document.querySelectorAll('.toc-sticky a');
+
+    const makeActive = (index) => {
+      navLinks.forEach(a => a.classList.remove('active'));
+      if (navLinks[index]) navLinks[index].classList.add('active');
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries.filter(e => e.isIntersecting);
+      if (visible.length > 0) {
+        const index = Array.from(sections).indexOf(visible[0].target);
+        makeActive(index >= 0 ? index : 0);
+      }
+    }, { threshold: 0.2 });
+
+    sections.forEach(sec => observer.observe(sec));
+
+    // === Zoom modal ===
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImage");
 
     document.querySelectorAll('.zoomable').forEach(img => {
       img.addEventListener('click', function() {
-        modal.style.display = "block";
+        modal.style.display = "flex";
         modalImg.src = this.src;
         modalImg.alt = this.alt;
       });
@@ -449,20 +687,12 @@
     }
 
     modal.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        closeModal();
-      }
+      if (event.target === modal) closeModal();
     });
 
     document.addEventListener('keydown', function(event) {
-      if (event.key === "Escape") {
-        closeModal();
-      }
+      if (event.key === "Escape") closeModal();
     });
   </script>
 </body>
 </html>
-
-
-
-
