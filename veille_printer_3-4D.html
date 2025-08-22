@@ -19,18 +19,6 @@
       --transition: all 0.3s ease;
     }
 
-    /* Dark mode */
-    :root[data-theme="dark"] {
-      --primary: #5dade2;
-      --text: #ecf0f1;
-      --muted: #bdc3c7;
-      --bg: #1a1a1a;
-      --card: #2c2c2c;
-      --border: #444;
-      --shadow: rgba(0, 0, 0, 0.3);
-      --highlight: rgba(93, 173, 226, 0.15);
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -43,7 +31,6 @@
       color: var(--text);
       background: var(--bg);
       padding: 40px 20px;
-      transition: var(--transition);
     }
 
     /* === Progress bar === */
@@ -57,25 +44,6 @@
       z-index: 10000;
       transition: width 0.05s ease;
       box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
-    }
-
-    /* === Custom cursor === */
-    .custom-cursor {
-      position: fixed;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--primary);
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 9999;
-      mix-blend-mode: difference;
-      transition: transform 0.1s ease, background 0.3s ease;
-      opacity: 0.8;
-    }
-    a:hover ~ .custom-cursor, button:hover ~ .custom-cursor {
-      background: #fff;
-      transform: translate(-50%, -50%) scale(1.4);
     }
 
     /* === Badge veille === */
@@ -138,7 +106,7 @@
       font-weight: 600;
     }
 
-    /* === Table des matières fixe === */
+    /* === Navigation fixe === */
     .toc-sticky {
       position: sticky;
       top: 0;
@@ -164,9 +132,11 @@
       border-radius: 6px;
       transition: var(--transition);
     }
-    .toc-sticky a:hover {
+    .toc-sticky a:hover,
+    .toc-sticky a.active {
       color: var(--primary);
       background: var(--highlight);
+      font-weight: 500;
     }
 
     .content {
@@ -385,28 +355,25 @@
   <!-- Progress bar -->
   <div id="progress-bar"></div>
 
-  <!-- Custom cursor -->
-  <div class="custom-cursor"></div>
-
   <!-- Badge veille -->
-  <div class="badge">Veille Technologique</div>
+  <div class="badge">VEILLE TECHNOLOGIQUE</div>
 
   <!-- Sticky TOC -->
   <nav class="toc-sticky">
     <ol>
-      <li><a href="#definition">1. C'est quoi l'impression 3D et 4D ?</a></li>
-      <li><a href="#tendances">2. Tendances 2025</a></li>
-      <li><a href="#outils">3. Outils utilisés</a></li>
-      <li><a href="#acteurs">4. Acteurs clés</a></li>
-      <li><a href="#marche">5. Marché</a></li>
-      <li><a href="#avenir">6. Aujourd'hui & demain</a></li>
-      <li><a href="#ressources">7. Ressources</a></li>
+      <li><a href="#definition" class="toc-link">1. C'est quoi l'impression 3D et 4D ?</a></li>
+      <li><a href="#tendances" class="toc-link">2. Tendances 2025</a></li>
+      <li><a href="#outils" class="toc-link">3. Outils utilisés</a></li>
+      <li><a href="#acteurs" class="toc-link">4. Acteurs clés</a></li>
+      <li><a href="#marche" class="toc-link">5. Marché</a></li>
+      <li><a href="#avenir" class="toc-link">6. Aujourd'hui & demain</a></li>
+      <li><a href="#ressources" class="toc-link">7. Ressources</a></li>
     </ol>
   </nav>
 
   <div class="container">
     <header>
-      <h1>Veille Technologique sur :<br><span class="highlight">Les imprimantes 3D et 4D</span></h1>
+      <h1>Les imprimantes 3D et 4D</span></h1>
     </header>
 
     <div class="content">
@@ -434,7 +401,7 @@
           <div class="tech-card">
             <h4>L'impression 3D</h4>
             <p>Consiste à créer un objet en ajoutant de la matière couche par couche, à partir d'un modèle numérique. Elle est utilisée pour fabriquer rapidement des pièces, des prototypes ou même des produits finis.</p>
-            <h5 style="color: var(--primary); margin: 20px 0 10px 0;">Principales techniques :</h5>
+            <h5 style="color: var(--primary); margin: 20px 0 10px 0;">Principales techniques</h5>
             <ul>
               <li><strong>FDM</strong> (dépôt de filament fondu) : plastique, usage courant</li>
               <li><strong>SLA</strong> (résine photopolymère) : grande précision</li>
@@ -445,14 +412,14 @@
           <div class="tech-card">
             <h4>L'impression 4D</h4>
             <p>Utilise les mêmes principes que l'impression 3D, mais avec des matériaux spéciaux qui réagissent à des changements environnementaux. La 4e dimension, ici, c'est le temps : l'objet imprimé évolue après sa fabrication.</p>
-            <h5 style="color: var(--primary); margin: 20px 0 10px 0;">Stimuli déclencheurs :</h5>
+            <h5 style="color: var(--primary); margin: 20px 0 10px 0;">Stimuli déclencheurs</h5>
             <ul>
               <li>Température (se plier avec la chaleur)</li>
               <li>Humidité (se déployer au contact de l'eau)</li>
               <li>Lumière (se contracter à la lumière UV)</li>
               <li>Champs magnétiques</li>
             </ul>
-            <h5 style="color: var(--primary); margin: 20px 0 10px 0;">Matériaux utilisés :</h5>
+            <h5 style="color: var(--primary); margin: 20px 0 10px 0;">Matériaux utilisés</h5>
             <ul>
               <li>Polymères à mémoire de forme</li>
               <li>Hydrogels intelligents</li>
@@ -466,7 +433,7 @@
         <h2>2. Quelles sont les tendances en 2025 ?</h2>
         <div class="comparison-grid">
           <div class="tech-card">
-            <h4>Pour les impressions 3D :</h4>
+            <h4>Pour les impressions 3D</h4>
             <ul>
               <li>Très utilisée dans l'aéronautique, la santé (prothèses), et le bâtiment</li>
               <li>Nouveaux matériaux : métaux très résistants, fibres carbone, plastiques bio-sourcés</li>
@@ -474,7 +441,7 @@
             </ul>
           </div>
           <div class="tech-card">
-            <h4>Pour les impressions 4D :</h4>
+            <h4>Pour les impressions 4D</h4>
             <ul>
               <li>Les objets changent de forme selon les conditions (chaleur, eau)</li>
               <li>Matériaux utilisés : polymères à mémoire de forme, gels réactifs</li>
@@ -656,42 +623,6 @@
       document.getElementById('progress-bar').style.width = Math.min(progress, 100) + '%';
     });
 
-    // === Curseur personnalisé ===
-    const cursor = document.querySelector('.custom-cursor');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-
-    // === Mode sombre ===
-    const toggle = document.createElement('button');
-    toggle.innerHTML = '☀️';
-    toggle.style.position = 'fixed';
-    toggle.style.bottom = '30px';
-    toggle.style.left = '30px';
-    toggle.style.zIndex = '1000';
-    toggle.style.padding = '12px 18px';
-    toggle.style.borderRadius = '50px';
-    toggle.style.border = '2px solid var(--border)';
-    toggle.style.background = 'var(--primary)';
-    toggle.style.color = 'white';
-    toggle.style.cursor = 'pointer';
-    document.body.appendChild(toggle);
-
-    const setTheme = (theme) => {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      toggle.innerHTML = theme === 'dark' ? '🌙' : '☀️';
-    };
-
-    if (localStorage.getItem('theme') === 'dark') setTheme('dark');
-    else setTheme('light');
-
-    toggle.addEventListener('click', () => {
-      const current = localStorage.getItem('theme');
-      setTheme(current === 'dark' ? 'light' : 'dark');
-    });
-
     // === Zoom modal ===
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
@@ -706,26 +637,36 @@
     modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    // === Navigation fluide ===
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+    // === Navigation fluide + lien actif ===
+    const navLinks = document.querySelectorAll('.toc-link');
+    const sections = document.querySelectorAll('section');
 
-    // === Fade-in au scroll ===
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.style.opacity = '1';
+    const makeActive = (index) => {
+      navLinks.forEach(link => link.classList.remove('active'));
+      if (navLinks[index]) navLinks[index].classList.add('active');
+    };
+
+    const getActiveSection = () => {
+      let index = 0;
+      for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          index = i;
+          break;
+        }
+      }
+      makeActive(index);
+    };
+
+    window.addEventListener('scroll', getActiveSection);
+    window.addEventListener('load', getActiveSection);
+
+    // Gestion du clic sur un lien
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        setTimeout(getActiveSection, 100);
       });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('section, .tech-card, .stat-card').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transition = 'opacity 0.6s ease';
-      observer.observe(el);
     });
   </script>
 </body>
