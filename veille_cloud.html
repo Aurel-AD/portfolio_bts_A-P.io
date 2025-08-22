@@ -30,6 +30,7 @@
       background: var(--bg);
       padding: 40px 20px;
     }
+    /* === Progress bar === */
     #progress-bar {
       position: fixed;
       top: 0;
@@ -41,6 +42,7 @@
       transition: width 0.05s ease;
       box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
     }
+    /* === Badge veille === */
     .badge {
       position: absolute;
       top: 16px;
@@ -56,6 +58,7 @@
       letter-spacing: 0.5px;
       box-shadow: 0 2px 8px var(--shadow);
     }
+    /* === Container === */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -92,6 +95,7 @@
       color: var(--primary);
       font-weight: 600;
     }
+    /* === Navigation fixe === */
     .toc-sticky {
       position: sticky;
       top: 0;
@@ -174,9 +178,11 @@
       padding: 20px;
     }
     figure img {
-      width: 60%;
+      width: 60%;           /* Réduit la largeur */
+      max-width: 600px;     /* Limite la taille max */
       height: auto;
-      object-fit: contain; /* Important ! */
+      margin: 0 auto;
+      display: block;
       border-radius: 12px;
       transition: transform 0.3s ease;
     }
@@ -423,13 +429,23 @@
 
         <!-- ITinsell -->
         <div class="tech-card">
-          <h4><img src="itinsell.png" alt="ITinsell" style="width: 86px; height: auto; margin-right: 10px; vertical-align: middle;">ITinsell</h4>
+          <h4>
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: white; border-radius: 50%; margin-right: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+              <img src="itinsell.png" alt="ITinsell" style="width: 40px; height: 40px;">
+            </span>
+            ITinsell
+          </h4>
           <p>ITinsell, anciennement ASP SERVEUR, est le propriétaire du datacenter haute densité le plus moderne de France. Il héberge le plus important Cube ISX APC de France (environnement d'hébergement de très haute densité). C'est le premier hébergeur écologique d'Europe grâce à l'utilisation des toutes dernières technologies APC. L'utilisation conjuguée de climatiseurs de précision et des meilleurs onduleurs réduit leur empreinte énergétique de 40 % par rapport aux autres datacenters traditionnels. La disponibilité garantie, accompagnée d'un contrat SLA (service-level agreement), fait qu'il est aujourd'hui le seul hébergeur capable de proposer une disponibilité contractuelle garantie à 100 %.</p>
         </div>
 
         <!-- Dropbox -->
         <div class="tech-card">
-          <h4><img src="dropbox.png" alt="Dropbox" style="width: 48px; height: auto; margin-right: 10px; vertical-align: middle;">Dropbox</h4>
+          <h4>
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: white; border-radius: 50%; margin-right: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+              <img src="dropbox.png" alt="Dropbox" style="width: 40px; height: 40px;">
+            </span>
+            Dropbox
+          </h4>
           <p>C'est la solution la plus populaire, c'est un des premiers à proposer ce type d'offre au public. À l'aide de son système de parrainage permettant au parrain et au filleul d'augmenter leur capacité de stockage, il propose également une interface Web efficace comprise avec diverses applications. Sa capacité de stockage est limitée à 18 Go avec le système de parrainage (ou 2 Go sans) pour le stockage gratuit. On peut étendre son abonnement payant à partir de 9,99 $ par mois pour 100 Go de stockage.</p>
           <p><strong>Avantage</strong> la facilité d'augmenter son stockage grâce au système de parrainage.</p>
           <p><strong>Inconvénients</strong> espace de stockage trop faible (2 Go) au début et pas d'offre payante inférieure à 10 $. La gestion des dossiers communs entre utilisateurs est également compliquée.</p>
@@ -437,7 +453,12 @@
 
         <!-- Google Drive -->
         <div class="tech-card">
-          <h4><img src="drive.png" alt="Google Drive" style="width: 48px; height: auto; margin-right: 10px; vertical-align: middle;">Google Drive</h4>
+          <h4>
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: white; border-radius: 50%; margin-right: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+              <img src="drive.png" alt="Google Drive" style="width: 40px; height: 40px;">
+            </span>
+            Google Drive
+          </h4>
           <p>Google a réussi à développer une solution performante, bien intégrée à ses services. C'est un outil de suite logicielle et d'applications mobiles. Il propose une visionneuse de fichiers parmi les plus performantes, son intégration à Gmail en fait un très bon outil pour les utilisateurs d'un compte. Sa partie de stockage gratuite est de 15 Go pour les nouveaux utilisateurs. 25 Go sont disponibles pour 2,49 $ par mois.</p>
           <p><strong>Avantage</strong> facilité d'utilisation grâce aux liens avec les autres services Google et à l'excellente visionneuse de fichiers.</p>
           <p><strong>Inconvénient</strong> les anciens utilisateurs gratuits ne disposent que de 5 Go sans pouvoir l'augmenter pour les 15 Go des nouveaux utilisateurs.</p>
@@ -445,7 +466,12 @@
 
         <!-- MEGA -->
         <div class="tech-card">
-          <h4><img src="mega.png" alt="MEGA" style="width: 80px; height: auto; margin-right: 10px; vertical-align: middle;">MEGA</h4>
+          <h4>
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: white; border-radius: 50%; margin-right: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+              <img src="mega.png" alt="MEGA" style="width: 40px; height: 40px;">
+            </span>
+            MEGA
+          </h4>
           <p>Le service successeur de MegaUpload qui a connu des débuts difficiles (problème d'interface, instabilité) et ce malgré son offre de stockage gratuite de 50 Go, a aujourd'hui évolué. La solution MEGA, ultra-sécurisée, fournit une suite logicielle très riche (MegaUploader, MegaDownloader) qui permet de visionner de nombreux fichiers, dont les vidéos.</p>
           <p><strong>Version gratuite</strong> 50 Go / <strong>version payante</strong> à partir de 9,99 € par mois pour 500 Go.</p>
           <p><strong>Avantage</strong> grand espace de stockage en version gratuite ou payante, optimisation de sa sécurité, interface et fonctionnalités.</p>
@@ -460,7 +486,9 @@
         <!-- Grand rectangle principal -->
         <div class="tech-card" style="margin-bottom: 30px; padding: 30px; text-align: center; border: 2px solid var(--primary); background: var(--card); box-shadow: 0 8px 16px var(--shadow);">
           <h3 style="color: var(--primary); margin: 0 0 10px 0; font-size: 1.6em;">
-            <img src="office.png" alt="Office 365" style="width: 48px; height: auto; margin-right: 12px; vertical-align: middle;">
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: white; border-radius: 50%; margin-right: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+              <img src="office.png" alt="Office 365" style="width: 40px; height: 40px;">
+            </span>
             OFFICE 365
           </h3>
           <p style="color: var(--muted); font-size: 1em; margin: 10px 0;">
@@ -524,7 +552,9 @@
         <!-- Google Apps for Work -->
         <div class="tech-card" style="margin-top: 40px; padding: 30px; text-align: center;">
           <h3 style="color: var(--primary); margin: 0 0 10px 0;">
-            <img src="google.png" alt="Google Apps" style="width: 48px; height: auto; margin-right: 12px; vertical-align: middle;">
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: white; border-radius: 50%; margin-right: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+              <img src="google.png" alt="Google Apps" style="width: 40px; height: 40px;">
+            </span>
             Google Apps for Work
           </h3>
           <p style="margin: 10px 0; color: var(--text); font-size: 1.05em;">
@@ -655,4 +685,3 @@
   </script>
 </body>
 </html>
-
