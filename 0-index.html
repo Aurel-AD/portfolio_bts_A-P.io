@@ -8,6 +8,8 @@
   <meta name="keywords" content="BTS SIO, SISR, alternance, portfolio, informatique, réseaux, sécurité, RGPD" />
   <link rel="preload" as="image" href="server.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Lottie Web Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
   <style>
     /* Appliquer Montserrat aux titres, menus et navigation */
     .hero-title,
@@ -73,6 +75,34 @@
       animation: bgFloat 30s ease-in-out infinite;
       opacity: 0.4;
       filter: blur(1px);
+    }
+
+    /* === ANIMATION LOTTIE EN BAS À DROITE === */
+    .lottie-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 120px;
+      height: 120px;
+      z-index: 1001;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(55, 255, 159, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .lottie-container:hover {
+      transform: scale(1.1);
+      border-color: #37ff9f;
+      box-shadow: 0 0 25px rgba(55, 255, 159, 0.5);
+    }
+
+    #lottie-animation {
+      width: 100%;
+      height: 100%;
     }
 
     /* === BARRE DE NAVIGATION AMÉLIORÉE === */
@@ -343,6 +373,7 @@
       }
       .main-content {
         padding-top: 180px;
+        padding-right: 140px; /* Espace pour l'animation sur mobile */
       }
       .dropdown-panel {
         top: 160px;
@@ -359,6 +390,12 @@
       .avatar-container {
         order: -1;
         margin: 0.5rem 0 0 0;
+      }
+      .lottie-container {
+        width: 80px;
+        height: 80px;
+        bottom: 15px;
+        right: 15px;
       }
     }
 
@@ -459,6 +496,11 @@
     </div>
   </section>
 
+  <!-- Animation Lottie en bas à droite -->
+  <div class="lottie-container" title="Robot qui salue">
+    <div id="lottie-animation"></div>
+  </div>
+
   <!-- Contenu principal -->
   <main class="main-content">
     <div class="hero-section fade-in">
@@ -481,24 +523,29 @@
     </a>
   </div>
 
-  <!-- Script pour les menus déroulants -->
+  <!-- Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      // === MENU DÉROULANT ===
       const menuItems = document.querySelectorAll('.menu-item');
       const panels = document.querySelectorAll('.dropdown-panel');
       let activePanel = null;
+      
       menuItems.forEach(item => {
         item.addEventListener('click', function () {
           const section = this.getAttribute('data-section');
           const panel = document.getElementById(section + '-panel');
+          
           if (activePanel === panel && panel.classList.contains('active')) {
             panel.classList.remove('active');
             this.classList.remove('active');
             activePanel = null;
             return;
           }
+          
           panels.forEach(p => p.classList.remove('active'));
           menuItems.forEach(m => m.classList.remove('active'));
+          
           if (panel) {
             panel.classList.add('active');
             this.classList.add('active');
@@ -506,6 +553,7 @@
           }
         });
       });
+      
       document.addEventListener('click', function (e) {
         if (!e.target.closest('.top-menu') && !e.target.closest('.dropdown-panel')) {
           panels.forEach(p => p.classList.remove('active'));
@@ -513,9 +561,43 @@
           activePanel = null;
         }
       });
+
+      // === ANIMATION LOTTIE ===
+      let lottieAnimation;
+      
+      // Initialiser l'animation Lottie
+      try {
+        lottieAnimation = lottie.loadAnimation({
+          container: document.getElementById('lottie-animation'),
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          path: 'RobotSaludando.json' // Remplacez par le chemin vers votre fichier JSON
+        });
+
+        // Gestion des erreurs de chargement
+        lottieAnimation.addEventListener('data_failed', function() {
+          console.error('Erreur lors du chargement de l\'animation Lottie');
+          document.querySelector('.lottie-container').style.display = 'none';
+        });
+
+        // Animation prête
+        lottieAnimation.addEventListener('DOMLoaded', function() {
+          console.log('Animation Lottie chargée avec succès');
+        });
+
+        // Interaction au clic sur l'animation
+        document.querySelector('.lottie-container').addEventListener('click', function() {
+          if (lottieAnimation) {
+            lottieAnimation.goToAndPlay(0); // Rejouer l'animation depuis le début
+          }
+        });
+
+      } catch (error) {
+        console.error('Erreur lors de l\'initialisation de Lottie:', error);
+        document.querySelector('.lottie-container').style.display = 'none';
+      }
     });
   </script>
 </body>
 </html>
-
-
