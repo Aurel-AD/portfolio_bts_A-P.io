@@ -281,6 +281,8 @@
             font-style: italic;
             font-weight: 500;
         }
+        
+        .mock-interface {
             background: #1f2937;
             color: #f9fafb;
             border-radius: 8px;
@@ -356,6 +358,38 @@
             text-decoration: underline;
         }
         
+        /* Bouton retour flottant */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0969da, #218bff);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            font-size: 1.5em;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        
         @media (max-width: 768px) {
             .container {
                 margin: 10px;
@@ -382,6 +416,13 @@
             
             .step-number {
                 margin-right: 0;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
@@ -410,15 +451,15 @@
             <div class="sites-grid">
                 <div class="site-card">
                     <h4>🏭 Site de Lens</h4>
-                    <p>Infrastructure principale</p>
+                    <p>Centre d'expertise</p>
                 </div>
                 <div class="site-card">
                     <h4>🏭 Site de Libercourt</h4>
-                    <p>Infrastructure secondaire</p>
+                    <p>Usine</p>
                 </div>
                 <div class="site-card">
                     <h4>🏭 Site de Villers-Bretonneux</h4>
-                    <p>Infrastructure tertiaire</p>
+                    <p>Usine</p>
                 </div>
             </div>
             
@@ -512,8 +553,6 @@
                             <div class="image-caption">📊 Console des backups - Statuts de vérification</div>
                         </div>
                         
-                      
-                        
                         <div class="highlight">
                             <strong>🎯 Validation :</strong> Dans cet exemple, aucun problème n'est détecté sur le serveur de Villers-Bretonneux. Tous les backups critiques ont été exécutés avec succès.
                         </div>
@@ -593,6 +632,34 @@
                 </div>
             </div>
         </div>
+        
+        <div class="footer">
+            <p>Documentation technique Novares - Vérification des Backups</p>
+            <p>© 2024 Novares Group. Tous droits réservés.</p>
+        </div>
     </div>
+    
+    <!-- Bouton retour vers le haut -->
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    
+    <script>
+        // Fonction pour le bouton retour vers le haut
+        document.addEventListener('DOMContentLoaded', function() {
+            var backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
