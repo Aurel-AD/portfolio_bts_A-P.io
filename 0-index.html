@@ -364,6 +364,69 @@
       transform: translateX(-3px);
     }
 
+    /* === ASSISTANT PANEL === */
+    .assistant-panel {
+      position: fixed;
+      bottom: 160px;
+      right: 30px;
+      width: 280px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
+      padding: 16px;
+      font-family: 'Inter', sans-serif;
+      z-index: 1002;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(55, 255, 159, 0.3);
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .assistant-panel:not(.hidden) {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .assistant-content p {
+      margin: 0 0 8px;
+      color: #333;
+      text-align: center;
+    }
+
+    .assistant-content button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px 12px;
+      border: none;
+      background: #0B8043;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .assistant-content button:hover {
+      background: #0A6A38;
+      transform: scale(1.02);
+    }
+
+    .close-btn {
+      background: #ddd !important;
+      color: #333 !important;
+      font-weight: 600;
+    }
+
+    .close-btn:hover {
+      background: #ccc !important;
+      transform: scale(1.02);
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .menu-container {
@@ -373,7 +436,7 @@
       }
       .main-content {
         padding-top: 180px;
-        padding-right: 140px; /* Espace pour l'animation sur mobile */
+        padding-right: 140px;
       }
       .dropdown-panel {
         top: 160px;
@@ -396,6 +459,11 @@
         height: 80px;
         bottom: 15px;
         right: 15px;
+      }
+      .assistant-panel {
+        bottom: 120px;
+        right: 15px;
+        width: 250px;
       }
     }
 
@@ -501,6 +569,19 @@
     <div id="lottie-animation"></div>
   </div>
 
+  <!-- === PANNEAU DE L'ASSISTANT INTERACTIF === -->
+  <div id="assistant-panel" class="assistant-panel hidden">
+    <div class="assistant-content">
+      <p><strong>👋 Salut ! Je suis ton guide</strong></p>
+      <p>Que veux-tu voir ?</p>
+      <button onclick="goToPage('1-apropos.html')">👤 À propos de moi</button>
+      <button onclick="goToPage('3-societe_novares.html')">🏢 Mon entreprise (Novares)</button>
+      <button onclick="goToPage('5-tableau_competence.html')">🔧 Mes compétences</button>
+      <button onclick="goToPage('6-veille_techno.html')">🌐 Veille technologique</button>
+      <button class="close-btn" onclick="closeAssistant()">Fermer</button>
+    </div>
+  </div>
+
   <!-- Contenu principal -->
   <main class="main-content">
     <div class="hero-section fade-in">
@@ -597,6 +678,42 @@
         console.error('Erreur lors de l\'initialisation de Lottie:', error);
         document.querySelector('.lottie-container').style.display = 'none';
       }
+
+      // === FONCTIONS ASSISTANT INTERACTIF ===
+      const assistantPanel = document.getElementById('assistant-panel');
+      const lottieContainer = document.querySelector('.lottie-container');
+
+      // Ouvrir le panneau
+      function toggleAssistant() {
+        if (assistantPanel.classList.contains('hidden')) {
+          assistantPanel.classList.remove('hidden');
+        } else {
+          assistantPanel.classList.add('hidden');
+        }
+      }
+
+      // Fermer le panneau
+      function closeAssistant() {
+        assistantPanel.classList.add('hidden');
+      }
+
+      // Aller vers une page
+      function goToPage(url) {
+        window.location.href = url;
+      }
+
+      // Écouter le clic sur le robot
+      lottieContainer.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleAssistant();
+      });
+
+      // Fermer le panneau en cliquant en dehors
+      document.addEventListener('click', function (e) {
+        if (!assistantPanel.contains(e.target) && !lottieContainer.contains(e.target)) {
+          assistantPanel.classList.add('hidden');
+        }
+      });
     });
   </script>
 </body>
