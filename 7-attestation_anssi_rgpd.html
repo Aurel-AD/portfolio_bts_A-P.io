@@ -170,26 +170,31 @@
     }
 
     .retour-bouton {
-      background-color: #3b82f6;
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      font-size: 15px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      border-radius: 14px;
-      cursor: pointer;
-      margin: 20px auto;
-      display: block;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
-    }
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  border-radius: 14px;
+  cursor: pointer;
+  margin: 20px auto;
+  display: block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+  text-decoration: none;
+  text-align: center;
+  width: fit-content;
+}
 
-    .retour-bouton:hover {
-      background-color: #2563eb;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
-    }
+.retour-bouton:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(59, 130, 246, 0.4);
+  color: white;
+  text-decoration: none;
+}
 
     .retour-bouton:active {
       transform: translateY(0);
@@ -302,8 +307,7 @@
     <div class="footer">
       Cliquez sur une certification pour consulter le détail dans un nouvel onglet.
     </div>
-
-    <button onclick="window.history.back()" class="retour-bouton">← Retour</button>
+    <a href="index.html" class="retour-bouton">← Retour à l'accueil</a>
   </div>
 
   <!-- Footer -->
@@ -312,4 +316,5 @@
   </footer>
 
 </body>
+
 </html>
