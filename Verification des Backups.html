@@ -643,10 +643,18 @@
     <a href="#" class="back-to-top" id="backToTop">↑</a>
     
     <script>
-        // Fonction pour le bouton retour vers le haut
+        // Fonction pour le bouton retour vers une autre page
         document.addEventListener('DOMContentLoaded', function() {
             var backToTopButton = document.getElementById('backToTop');
             
+            // Changer le comportement du bouton
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault(); // Empêche le comportement par défaut (remonter)
+                window.location.href = '4-experiences_pro.html'; // Redirige vers la page souhaitée
+            });
+    
+            // Optionnel : tu peux aussi masquer le bouton si tu ne veux pas qu’il apparaisse
+            // Sinon, il apparaîtra quand même après défilement
             window.addEventListener('scroll', function() {
                 if (window.pageYOffset > 300) {
                     backToTopButton.classList.add('show');
@@ -654,12 +662,8 @@
                     backToTopButton.classList.remove('show');
                 }
             });
-            
-            backToTopButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
         });
     </script>
 </body>
 </html>
+
