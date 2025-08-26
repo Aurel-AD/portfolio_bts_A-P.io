@@ -364,25 +364,24 @@
       transform: translateX(-3px);
     }
 
-    /* === ASSISTANT PANEL === */
+    /* === PANNEAU D'ASSISTANT MODERNE (NOIR + VERT) === */
     .assistant-panel {
       position: fixed;
       bottom: 160px;
       right: 30px;
       width: 280px;
-      background: white;
+      background: #121212;
       border-radius: 14px;
-      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.25);
-      padding: 16px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+      padding: 18px;
       font-family: 'Inter', sans-serif;
       z-index: 1002;
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px);
       transition: all 0.3s ease;
-      border: 1px solid rgba(55, 255, 159, 0.3);
+      border: 1px solid #37ff9f;
       backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.95);
     }
 
     .assistant-panel:not(.hidden) {
@@ -392,9 +391,11 @@
     }
 
     .assistant-content p {
-      margin: 0 0 8px;
-      color: #333;
+      margin: 0 0 12px;
+      color: white;
       text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     .assistant-content button {
@@ -402,29 +403,38 @@
       width: 100%;
       margin: 8px 0;
       padding: 10px 12px;
-      border: none;
-      background: #0B8043;
-      color: white;
-      border-radius: 8px;
+      background: transparent;
+      color: #37ff9f;
+      border: 2px solid #37ff9f;
+      border-radius: 30px;
       cursor: pointer;
+      font-family: 'Inter', sans-serif;
       font-size: 0.95rem;
+      font-weight: 600;
       transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      outline: none;
     }
 
     .assistant-content button:hover {
-      background: #0A6A38;
-      transform: scale(1.02);
+      background-color: rgba(55, 255, 159, 0.1);
+      transform: scale(1.03);
+      box-shadow: 0 0 12px rgba(55, 255, 159, 0.4);
     }
 
-    .close-btn {
-      background: #ddd !important;
-      color: #333 !important;
-      font-weight: 600;
+    /* === BOUTON FERMER AVEC FLÈCHE === */
+    .close-btn svg {
+      fill: #37ff9f;
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
     }
 
-    .close-btn:hover {
-      background: #ccc !important;
-      transform: scale(1.02);
+    .close-btn:hover svg {
+      transform: translateX(-2px);
     }
 
     /* Responsive */
@@ -578,7 +588,12 @@
       <button onclick="goToPage('3-societe_novares.html')">🏢 Mon entreprise (Novares)</button>
       <button onclick="goToPage('5-tableau_competence.html')">🔧 Mes compétences</button>
       <button onclick="goToPage('6-veille_techno.html')">🌐 Veille technologique</button>
-      <button class="close-btn" onclick="closeAssistant()">Fermer</button>
+      <button class="close-btn" onclick="closeAssistant()">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 8H6L7.5 6.5L4 3L5 2L10 7L15 2L16 3L11.5 7.5L13 9L10 12L10 8Z" fill="#37ff9f"/>
+        </svg>
+        Fermer
+      </button>
     </div>
   </div>
 
@@ -646,31 +661,27 @@
       // === ANIMATION LOTTIE ===
       let lottieAnimation;
       
-      // Initialiser l'animation Lottie
       try {
         lottieAnimation = lottie.loadAnimation({
           container: document.getElementById('lottie-animation'),
           renderer: 'svg',
           loop: true,
           autoplay: true,
-          path: 'RobotSaludando.json' // Remplacez par le chemin vers votre fichier JSON
+          path: 'RobotSaludando.json'
         });
 
-        // Gestion des erreurs de chargement
         lottieAnimation.addEventListener('data_failed', function() {
           console.error('Erreur lors du chargement de l\'animation Lottie');
           document.querySelector('.lottie-container').style.display = 'none';
         });
 
-        // Animation prête
         lottieAnimation.addEventListener('DOMLoaded', function() {
           console.log('Animation Lottie chargée avec succès');
         });
 
-        // Interaction au clic sur l'animation
         document.querySelector('.lottie-container').addEventListener('click', function() {
           if (lottieAnimation) {
-            lottieAnimation.goToAndPlay(0); // Rejouer l'animation depuis le début
+            lottieAnimation.goToAndPlay(0);
           }
         });
 
@@ -683,7 +694,6 @@
       const assistantPanel = document.getElementById('assistant-panel');
       const lottieContainer = document.querySelector('.lottie-container');
 
-      // Ouvrir le panneau
       function toggleAssistant() {
         if (assistantPanel.classList.contains('hidden')) {
           assistantPanel.classList.remove('hidden');
@@ -692,23 +702,19 @@
         }
       }
 
-      // Fermer le panneau
       function closeAssistant() {
         assistantPanel.classList.add('hidden');
       }
 
-      // Aller vers une page
       function goToPage(url) {
         window.location.href = url;
       }
 
-      // Écouter le clic sur le robot
       lottieContainer.addEventListener('click', function (e) {
         e.stopPropagation();
         toggleAssistant();
       });
 
-      // Fermer le panneau en cliquant en dehors
       document.addEventListener('click', function (e) {
         if (!assistantPanel.contains(e.target) && !lottieContainer.contains(e.target)) {
           assistantPanel.classList.add('hidden');
