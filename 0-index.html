@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio d’Aurélien Pont – BTS SIO SISR</title>
+  <link rel="icon" type="image/gif" href="icons8-favicon.gif">
   <meta name="description" content="Aurélien, apprenti en BTS SIO SISR chez Novares. Découvrez mon portfolio : mon parcours de reconversion, mes compétences en administration système et réseau, et mes projets en alternance." />
   <meta name="keywords" content="BTS SIO, SISR, alternance, portfolio, informatique, réseaux, sécurité, RGPD" />
   <link rel="preload" as="image" href="server.jpg" />
@@ -504,6 +505,31 @@
         <div class="menu-item" data-section="formation">Centre & Entreprise <span class="arrow">&#9662;</span></div>
         <!-- Avatar cliquable vers le CV -->
         <div class="avatar-container">
+          <button id="theme-toggle" style="
+  background: none;
+  border: 2px solid #37ff9f;
+  color: #37ff9f;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+" onclick="toggleTheme()">🌞</button>
+
+<script>
+function toggleTheme() {
+  const body = document.body;
+  const toggle = document.getElementById('theme-toggle');
+  if (body.style.filter === 'invert(1) hue-rotate(180deg)') {
+    body.style.filter = '';
+    toggle.textContent = '🌞';
+  } else {
+    body.style.filter = 'invert(1) hue-rotate(180deg)';
+    toggle.textContent = '🌙';
+  }
+}
+</script>
           <a href="cv.html" target="_blank" rel="noopener noreferrer" aria-label="Télécharger mon CV">
             <img src="Avatar.png" alt="Photo de profil" class="avatar" />
           </a>
@@ -602,6 +628,20 @@
     <div class="hero-section fade-in">
       <h1 class="hero-title">Bienvenue sur mon portfolio</h1>
       <p class="hero-subtitle">
+      <a href="cv.html" target="_blank" style="
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background: #37ff9f;
+      color: #000;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      📄 Télécharger mon CV
+    </a>
       Étudiant en BTS SIO option SISR en alternance chez Novares,
       je vous invite à découvrir mes projets, mes compétences et mon parcours 
       dans le domaine des systèmes, réseaux et cybersécurité.
@@ -610,6 +650,23 @@
   </main>
 
   <!-- Bouton Retour à l'accueil -->
+   <section style="
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 600px;
+    border-radius: 15px;
+    border: 1px solid rgba(55,255,159,0.3);
+    text-align: center;
+  ">
+    <h2 style="color: #37ff9f; margin-bottom: 1rem;">Certifications</h2>
+    <ul style="color: white; list-style: none; padding: 0;">
+      <li>✅ MOOC ANSSI - RGPD</li>
+      <li>✅ Cisco CCNA (en cours)</li>
+      <li>✅ Microsoft AZ-900 (en cours)</li>
+    </ul>
+  </section> 
   <div class="navigation">
     <a href="0-index.html" class="nav-link">
       <svg class="icon-arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -743,8 +800,27 @@
       });
     });
   </script>
+  <script>
+  // Animation douce au scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = 0;
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'all 0.6s ease';
+    observer.observe(section);
+  });
+</script>
 </body>
 
 </html>
+
 
 
