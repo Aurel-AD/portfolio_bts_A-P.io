@@ -9,6 +9,7 @@
   <meta name="description" content="Aurélien, apprenti en BTS SIO SISR chez Novares. Découvrez mon portfolio : mon parcours de reconversion, mes compétences en administration système et réseau, et mes projets en alternance." />
   <meta name="keywords" content="BTS SIO, SISR, alternance, portfolio, informatique, réseaux, sécurité, RGPD" />
   <link rel="preload" as="image" href="server.jpg" />
+  <link rel="prefetch" href="RobotSaludando.json" as="fetch" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
   <!-- Lottie Web Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
@@ -517,19 +518,24 @@
         transform: translateY(0);
       }
     }
+
+    /* === FEEDBACK TACTILE SUR LES BOUTONS === */
+    button:active {
+      transform: scale(0.95);
+    }
   </style>
 </head>
 <body>
   <header>
     <nav class="top-menu" aria-label="Navigation principale">
       <div class="menu-container">
-        <div class="menu-item" data-section="biographie">Biographie <span class="arrow">&#9662;</span></div>
+        <div class="menu-item" data-section="biographie" id="biographie">Biographie <span class="arrow">&#9662;</span></div>
         <div class="menu-item" data-section="alternance">Mon alternance <span class="arrow">&#9662;</span></div>
         <div class="menu-item" data-section="veille">Mes sources <span class="arrow">&#9662;</span></div>
         <div class="menu-item" data-section="formation">Centre & Entreprise <span class="arrow">&#9662;</span></div>
         <!-- Avatar cliquable vers le CV -->
         <div class="avatar-container">
-          <a href="cv.html" target="_blank" rel="noopener noreferrer" aria-label="Télécharger mon CV">
+          <a href="cv.pdf" download="CV_Aurelien_Pont.pdf" target="_blank" rel="noopener noreferrer" aria-label="Télécharger mon CV">
             <img src="Avatar.png" alt="Photo de profil" class="avatar" />
           </a>
         </div>
@@ -538,7 +544,7 @@
   </header>
 
   <!-- Panneaux déroulants -->
-  <section class="dropdown-panel" id="biographie-panel" aria-label="Sous-menu Biographie">
+  <section class="dropdown-panel" id="biographie-panel" role="region" aria-labelledby="biographie">
     <div class="dropdown-content">
       <div class="dropdown-section">
         <h3 class="section-title">À propos</h3>
@@ -804,9 +810,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
