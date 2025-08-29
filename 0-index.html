@@ -663,9 +663,19 @@
   </svg>
   LinkedIn
 </button>
-        <button onclick="window.location.href='mailto:aurelien.pont@email.com'">
-          ✉️ Envoyer un e-mail
-        </button>
+  <!-- Formulaire de contact intégré -->
+<form action="https://formspree.io/f/xbladpvo" method="POST" style="margin-top: 1rem;">
+  <input type="text" name="name" placeholder="Ton nom" required
+         style="width:100%; padding:.5rem; margin-bottom:.5rem; border-radius:8px; border:none; font-family:Inter;">
+  <input type="email" name="email" placeholder="Ton email" required
+         style="width:100%; padding:.5rem; margin-bottom:.5rem; border-radius:8px; border:none; font-family:Inter;">
+  <textarea name="message" placeholder="Votre message..." required
+            style="width:100%; padding:.5rem; margin-bottom:.5rem; border-radius:8px; border:none; min-height:80px; font-family:Inter;"></textarea>
+  <button type="submit"
+          style="width:100%; background:#37ff9f; color:#000; padding:.6rem; border:none; border-radius:30px; font-family:Montserrat; font-weight:600; cursor:pointer;">
+    Envoyer
+  </button>
+</form>
       </div>
 
       <button class="close-btn" id="close-assistant">
@@ -810,5 +820,6 @@ document.addEventListener('click', e => {
 </script>
 </body>
 </html>
+
 
 
