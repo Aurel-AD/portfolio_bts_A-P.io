@@ -1,240 +1,550 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio d’Aurélien Pont – BTS SIO SISR</title>
-
-  <!-- SEO -->
-  <meta name="description" content="Aurélien, apprenti en BTS SIO SISR chez Novares. Découvrez mon portfolio : parcours, compétences et projets en alternance."/>
-  <meta name="keywords" content="BTS SIO, SISR, alternance, cybersécurité, réseaux, RGPD, portfolio"/>
-
-  <!-- OpenGraph / Twitter -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Portfolio Aurélien Pont – BTS SIO SISR"/>
-  <meta property="og:description" content="Étudiant en BTS SIO SISR en alternance chez Novares : découvrez mes projets et compétences."/>
-  <meta property="og:url" content="https://aurel-ad.github.io/portfolio_bts_A-P.io/0-index.html"/>
-  <meta property="og:image" content="https://aurel-ad.github.io/portfolio_bts_A-P.io/avatar-og.png"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Portfolio Aurélien Pont – BTS SIO SISR"/>
-  <meta name="twitter:description" content="Étudiant en BTS SIO SISR en alternance chez Novares : découvrez mes projets et compétences."/>
-  <meta name="twitter:image" content="https://aurel-ad.github.io/portfolio_bts_A-P.io/avatar-og.png"/>
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" href="./icons8-favicon.png"/>
-  <link rel="icon" type="image/gif" href="./icons8-favicon.gif"/>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"/>
-
-  <!-- Lottie -->
+  <link rel="icon" type="image/png" href="./icons8-favicon.png" />
+  <link rel="icon" type="image/gif" href="./icons8-favicon.gif" />
+  <meta name="description" content="Aurélien, apprenti en BTS SIO SISR chez Novares. Découvrez mon portfolio : mon parcours de reconversion, mes compétences en administration système et réseau, et mes projets en alternance." />
+  <meta name="keywords" content="BTS SIO, SISR, alternance, portfolio, informatique, réseaux, sécurité, RGPD" />
+  <link rel="preload" as="image" href="server.jpg" />
+  <link rel="prefetch" href="RobotSaludando.json" as="fetch" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Lottie Web Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
-
   <style>
-    :root{
-      --clr-accent:#37ff9f;
-      --clr-bg:#121212;
+    /* Appliquer Montserrat aux titres, menus et navigation */
+    .hero-title,
+    .menu-item,
+    .section-title,
+    nav.top-menu,
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+    }
+    /* Appliquer Inter au texte courant */
+    body, .hero-subtitle, .link-item a {
+      font-family: 'Inter', sans-serif;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* Fond d'écran animé */
+    body {
+      background-image: url('server.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Overlay semi-transparent pour lisibilité */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    /* Animation subtile du fond */
+    @keyframes bgFloat {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-10px) scale(1.02);
+      }
+      100% {
+        transform: translateY(0) scale(1);
+      }
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: inherit;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      animation: bgFloat 30s ease-in-out infinite;
+      opacity: 0.4;
+      filter: blur(1px);
     }
 
-    *{margin:0;padding:0;box-sizing:border-box}
-
-    /* --- Fond animé (webp + fallback) --- */
-    body{
-      background-image:url('server.webp'), url('server.jpg');
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-      min-height:100vh;
-      position:relative;
-      overflow-x:hidden;
-      font-family:'Inter',sans-serif;
-      color:#fff;
-    }
-    body::before{
-      content:'';
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.55);
-      z-index:1;
-    }
-    body::after{
-      content:'';
-      position:fixed;
-      inset:0;
-      background:inherit;
-      background-size:cover;
-      z-index:0;
-      animation:bgFloat 30s ease-in-out infinite;
-      opacity:.35;
-      filter:blur(1.5px);
-    }
-    @keyframes bgFloat{
-      0%{transform:translateY(0) scale(1)}
-      50%{transform:translateY(-10px) scale(1.03)}
-      100%{transform:translateY(0) scale(1)}
+    /* === ANIMATION LOTTIE EN BAS À DROITE === */
+    .lottie-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 120px;
+      height: 120px;
+      z-index: 1001;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(55, 255, 159, 0.3);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
-    /* --- NAV --- */
-    header nav.top-menu{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      background:#0B8043;
-      padding:.75rem 1rem;
-      z-index:1000;
-      box-shadow:0 4px 20px rgba(0,0,0,.3);
-      display:flex;
-      justify-content:center;
-      gap:1rem;
-      flex-wrap:wrap;
-    }
-    header button.menu-item{
-      background:rgba(255,255,255,.05);
-      border:1px solid var(--clr-accent);
-      color:var(--clr-accent);
-      font-family:'Montserrat',sans-serif;
-      font-weight:600;
-      font-size:1rem;
-      padding:.5rem 1rem;
-      border-radius:8px;
-      cursor:pointer;
-      transition:all .3s ease;
-    }
-    header button.menu-item:hover,
-    header button.menu-item[aria-expanded="true"]{
-      background:rgba(55,255,159,.15);
-      box-shadow:0 0 15px rgba(55,255,159,.6);
-      transform:translateY(-2px);
+    .lottie-container:hover {
+      transform: scale(1.1);
+      border-color: #37ff9f;
+      box-shadow: 0 0 25px rgba(55, 255, 159, 0.5);
     }
 
-    /* Avatar */
-    .avatar-container{
-      position:absolute;
-      right:1rem;
-      top:.5rem;
+    #lottie-animation {
+      width: 100%;
+      height: 100%;
     }
-    .avatar{
-      width:48px;
-      height:48px;
-      border-radius:50%;
-      border:2px solid var(--clr-accent);
-      transition:transform .2s ease;
-    }
-    .avatar:hover{transform:scale(1.15)}
 
-    /* --- HERO --- */
-    .main-content{
-      position:relative;
-      z-index:2;
-      padding:120px 1rem 2rem;
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
+    /* === BARRE DE NAVIGATION AMÉLIORÉE === */
+    header nav.top-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #0B8043;
+      padding: 1rem 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: slideDown 0.8s ease-out forwards;
     }
-    .hero-section{
-      background:rgba(255,255,255,.12);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      padding:2.5rem 2rem;
-      border-radius:12px;
-      max-width:750px;
-    }
-    .hero-title{
-      font-family:'Montserrat',sans-serif;
-      font-size:2.3rem;
-      margin-bottom:1rem;
-    }
-    .hero-subtitle{font-size:1.1rem;line-height:1.6}
 
-    /* --- DROPDOWNS --- */
-    .dropdown-panel{
-      position:fixed;
-      top:72px;
-      left:0;
-      width:100%;
-      background:#2c3e50;
-      max-height:0;
-      overflow:hidden;
-      transition:max-height .4s ease;
-      z-index:999;
+    @keyframes slideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    .dropdown-panel.active{max-height:300px}
-    .dropdown-content{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:1.5rem;
-      padding:1.5rem;
-    }
-    .dropdown-section{min-width:180px}
-    .section-title{
-      font-family:'Montserrat',sans-serif;
-      font-size:1.1rem;
-      margin-bottom:.5rem;
-      color:#fff;
-    }
-    .link-item a{
-      color:#fff;
-      text-decoration:none;
-      transition:color .2s;
-    }
-    .link-item a:hover{color:var(--clr-accent)}
 
-    /* --- FOOTER --- */
-    footer{
-      position:relative;
-      z-index:2;
-      text-align:center;
-      padding:1.5rem 1rem 3rem;
-      font-size:.85rem;
-      color:#ccc;
+    .menu-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 0 2rem;
     }
-    footer a{color:var(--clr-accent);text-decoration:none}
-    footer a:hover{text-decoration:underline}
 
-    /* --- LOTTIE / ASSISTANT --- */
-    .lottie-container{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      width:100px;
-      height:100px;
-      cursor:pointer;
-      z-index:1001;
+    .menu-item {
+      color: #37ff9f;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 0.6rem 1.2rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(55, 255, 159, 0.3);
     }
-    #lottie-animation{width:100%;height:100%}
 
-    /* --- RESPONSIVE --- */
-    @media(max-width:600px){
-      header nav.top-menu{flex-direction:column;align-items:center;padding-bottom:.5rem}
-      .main-content{padding-top:160px}
-      .hero-title{font-size:2rem}
+    .menu-item:hover,
+    .menu-item.active {
+      background: linear-gradient(90deg, rgba(55, 255, 159, 0.15), rgba(55, 255, 159, 0.3));
+      border: 1px solid #37ff9f;
+      box-shadow: 0 0 15px rgba(55, 255, 159, 0.6);
+      transform: translateY(-3px);
+    }
+
+    .menu-item .arrow {
+      font-size: 0.6rem;
+      margin-left: 0.3rem;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-item.active .arrow {
+      transform: rotate(180deg);
+    }
+
+    /* === AVATAR AGRANDI + CLIQUABLE VERS CV === */
+    .avatar-container {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .avatar-container a {
+      display: block;
+      border-radius: 50%;
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+
+    .avatar-container a:hover::after {
+      opacity: 1;
+    }
+
+    .avatar-container a::after {
+      content: 'CV';
+      position: absolute;
+      bottom: -10px;
+      right: 0;
+      font-size: 0.7rem;
+      color: white;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2px 6px;
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 3px solid #37ff9f;
+      box-shadow: 
+        0 0 10px rgba(55, 255, 159, 0.7),
+        0 0 20px rgba(55, 255, 159, 0.4);
+      object-fit: cover;
+      background: white;
+      transition: all 0.3s ease;
+    }
+
+    .avatar:hover {
+      transform: scale(1.1);
+      box-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.8),
+        0 0 30px rgba(55, 255, 159, 0.7);
+    }
+
+    /* Contenu principal */
+    .main-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 100px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 2rem 2rem;
+    }
+
+    .hero-section {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      max-width: 800px;
+      margin-bottom: 2rem;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: #dddddd;
+      line-height: 1.6;
+    }
+
+    /* Panneaux déroulants */
+    .dropdown-panel {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: #2c3e50;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-panel.active {
+      max-height: 300px;
+    }
+
+    .dropdown-content {
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .dropdown-section {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .section-title {
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .link-item {
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .link-item a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease, transform 0.2s ease;
+      display: block;
+      padding: 0.3rem 0;
+    }
+
+    .link-item a:hover {
+      color: #37ff9f;
+      transform: translateX(5px);
+    }
+
+    /* Bouton "Retour à l'accueil" - stylé et animé */
+    .navigation {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #37ff9f;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 12px 24px;
+      border: 2px solid #37ff9f;
+      border-radius: 30px;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link .icon-arrow {
+      fill: #000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      background: #37ff9f;
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(55, 255, 159, 0.4);
+    }
+
+    .nav-link:hover .icon-arrow {
+      fill: #000;
+      transform: translateX(-3px);
+    }
+
+    /* === PANNEAU D'ASSISTANT MODERNE (NOIR + VERT) === */
+    .assistant-panel {
+      position: fixed;
+      bottom: 160px;
+      right: 30px;
+      width: 280px;
+      background: #121212;
+      border-radius: 14px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+      padding: 18px;
+      font-family: 'Inter', sans-serif;
+      z-index: 1002;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      border: 1px solid #37ff9f;
+      backdrop-filter: blur(10px);
+    }
+
+    .assistant-panel:not(.hidden) {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .assistant-content p {
+      margin: 0 0 12px;
+      color: white;
+      text-align: center;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .assistant-content button {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 10px 12px;
+      background: transparent;
+      color: #37ff9f;
+      border: 2px solid #37ff9f;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      outline: none;
+    }
+
+    .assistant-content button:hover {
+      background-color: rgba(55, 255, 159, 0.1);
+      transform: scale(1.03);
+      box-shadow: 0 0 12px rgba(55, 255, 159, 0.4);
+    }
+
+    /* === BOUTON FERMER AVEC FLÈCHE === */
+    .close-btn svg {
+      fill: #37ff9f;
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    .close-btn:hover svg {
+      transform: translateX(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0 1rem;
+      }
+      .main-content {
+        padding-top: 180px;
+        padding-right: 140px;
+      }
+      .dropdown-panel {
+        top: 160px;
+      }
+      .hero-title {
+        font-size: 2rem;
+      }
+      .hero-section {
+        padding: 2rem;
+      }
+      .dropdown-content {
+        padding: 1rem;
+      }
+      .avatar-container {
+        order: -1;
+        margin: 0.5rem 0 0 0;
+      }
+      .lottie-container {
+        width: 80px;
+        height: 80px;
+        bottom: 15px;
+        right: 15px;
+      }
+      .assistant-panel {
+        bottom: 120px;
+        right: 15px;
+        width: 250px;
+      }
+    }
+
+    /* Animation d'apparition */
+    .fade-in {
+      animation: fadeIn 1s ease-in;
+    }
+    
+    .linkedin-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #37ff9f;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 10px 14px;
+      border: 2px solid #37ff9f;
+      border-radius: 30px;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+    
+    .linkedin-btn:hover {
+      background: #37ff9f;
+      color: #000;
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(55, 255, 159, 0.4);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* === FEEDBACK TACTILE SUR LES BOUTONS === */
+    button:active {
+      transform: scale(0.95);
     }
   </style>
 </head>
-
 <body>
   <header>
     <nav class="top-menu" aria-label="Navigation principale">
-      <button class="menu-item" aria-expanded="false" aria-controls="biographie-panel">Biographie ▾</button>
-      <button class="menu-item" aria-expanded="false" aria-controls="alternance-panel">Mon alternance ▾</button>
-      <button class="menu-item" aria-expanded="false" aria-controls="veille-panel">Mes sources ▾</button>
-      <button class="menu-item" aria-expanded="false" aria-controls="formation-panel">Formation & Entreprise ▾</button>
-
-      <div class="avatar-container">
-        <a href="cv.pdf" download="CV_Aurelien_Pont.pdf" aria-label="Télécharger mon CV">
-          <img src="Avatar.png" alt="Photo de profil" class="avatar"/>
-        </a>
+      <div class="menu-container">
+        <div class="menu-item" data-section="biographie" id="biographie">Biographie <span class="arrow">&#9662;</span></div>
+        <div class="menu-item" data-section="alternance">Mon alternance <span class="arrow">&#9662;</span></div>
+        <div class="menu-item" data-section="veille">Mes sources <span class="arrow">&#9662;</span></div>
+        <div class="menu-item" data-section="formation">Centre & Entreprise <span class="arrow">&#9662;</span></div>
+        <!-- Avatar cliquable vers le CV -->
+        <div class="avatar-container">
+          <a href="cv.pdf" download="CV_Aurelien_Pont.pdf" target="_blank" rel="noopener noreferrer" aria-label="Télécharger mon CV">
+            <img src="Avatar.png" alt="Photo de profil" class="avatar" />
+          </a>
+        </div>
       </div>
     </nav>
   </header>
 
-  <!-- Dropdowns -->
-  <section class="dropdown-panel" id="biographie-panel">
+  <!-- Panneaux déroulants -->
+  <section class="dropdown-panel" id="biographie-panel" role="region" aria-labelledby="biographie">
     <div class="dropdown-content">
       <div class="dropdown-section">
         <h3 class="section-title">À propos</h3>
@@ -244,7 +554,7 @@
     </div>
   </section>
 
-  <section class="dropdown-panel" id="alternance-panel">
+  <section class="dropdown-panel" id="alternance-panel" aria-label="Sous-menu Alternance">
     <div class="dropdown-content">
       <div class="dropdown-section">
         <h3 class="section-title">Entreprise</h3>
@@ -263,104 +573,258 @@
     </div>
   </section>
 
-  <section class="dropdown-panel" id="veille-panel">
+  <section class="dropdown-panel" id="veille-panel" aria-label="Sous-menu Mes sources">
     <div class="dropdown-content">
       <div class="dropdown-section">
         <h3 class="section-title">Cybersécurité</h3>
-        <div class="link-item"><a href="https://www.zataz.com/" target="_blank" rel="noopener">ZATAZ</a></div>
-        <div class="link-item"><a href="https://www.lemondeinformatique.fr/" target="_blank" rel="noopener">Le Monde Informatique</a></div>
+        <div class="link-item">
+          <a href="https://www.zataz.com/" target="_blank" rel="noopener noreferrer" title="Actualités cyber, phishing, ransomware, RGPD">
+            ZATAZ
+          </a>
+        </div>
+        <div class="link-item">
+          <a href="https://www.lemondeinformatique.fr/" target="_blank" rel="noopener noreferrer" title="Sécurité, entreprise, systèmes d'information">
+            Le Monde Informatique
+          </a>
+        </div>
       </div>
       <div class="dropdown-section">
         <h3 class="section-title">Technique & Systèmes</h3>
-        <div class="link-item"><a href="https://www.it-connect.fr/" target="_blank" rel="noopener">IT-Connect</a></div>
-        <div class="link-item"><a href="https://www.reddit.com/r/sysadmin/" target="_blank" rel="noopener">r/sysadmin</a></div>
+        <div class="link-item">
+          <a href="https://www.it-connect.fr/" target="_blank" rel="noopener noreferrer" title="Tutoriels MDT, déploiement Windows, administration réseau">
+            IT-Connect
+          </a>
+        </div>
+        <div class="link-item">
+          <a href="https://www.reddit.com/r/sysadmin/" target="_blank" rel="noopener noreferrer" title="Communauté SysAdmin : bonnes pratiques, dépannage, outils">
+            r/sysadmin (Reddit)
+          </a>
+        </div>
       </div>
       <div class="dropdown-section">
         <h3 class="section-title">Veille Digitale & IA</h3>
-        <div class="link-item"><a href="https://www.leptidigital.fr/" target="_blank" rel="noopener">LEPTIDIGITAL</a></div>
-        <div class="link-item"><a href="https://www.journaldunet.com/" target="_blank" rel="noopener">Journal du Net</a></div>
+        <div class="link-item">
+          <a href="https://www.leptidigital.fr/" target="_blank" rel="noopener noreferrer" title="IA, ChatGPT, GPT-5, outils digitaux">
+            LEPTIDIGITAL
+          </a>
+        </div>
+        <div class="link-item">
+          <a href="https://www.journaldunet.com/" target="_blank" rel="noopener noreferrer" title="Actualité tech, innovation, entreprises numériques">
+            Journal du Net
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="dropdown-panel" id="formation-panel">
+  <section class="dropdown-panel" id="formation-panel" aria-label="Sous-menu Formation">
     <div class="dropdown-content">
       <div class="dropdown-section">
         <h3 class="section-title">Centre de formation</h3>
-        <div class="link-item"><a href="https://www.afpi-acmformation.com/" target="_blank" rel="noopener">AFPI</a></div>
+        <div class="link-item">
+          <a href="https://www.afpi-acmformation.com/" target="_blank" rel="noopener noreferrer" title="AFPI - Centre de formation">
+            AFPI
+          </a>
+        </div>
       </div>
       <div class="dropdown-section">
         <h3 class="section-title">Entreprise</h3>
-        <div class="link-item"><a href="https://www.novaresteam.com/fr/" target="_blank" rel="noopener">Novares</a></div>
+        <div class="link-item">
+          <a href="https://www.novaresteam.com/fr/" target="_blank" rel="noopener noreferrer" title="Novares - Mon entreprise">
+            Novares
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <main class="main-content">
-    <div class="hero-section">
-      <h1 class="hero-title">Bienvenue sur mon portfolio</h1>
-      <p class="hero-subtitle">
-        Étudiant en BTS SIO option SISR en alternance chez Novares,
-        je vous invite à découvrir mes projets, mes compétences et mon parcours
-        dans les systèmes, réseaux et cybersécurité.
-      </p>
-    </div>
-  </main>
-
-  <!-- Lottie -->
+  <!-- Animation Lottie en bas à droite -->
   <div class="lottie-container" title="Robot qui salue">
     <div id="lottie-animation"></div>
   </div>
 
-  <footer>
-    <p>
-      <a href="cv.pdf" download="CV_Aurelien_Pont.pdf">📄 Télécharger mon CV (PDF)</a> |
-      <a href="mentions.html">Mentions légales & RGPD</a>
-    </p>
-  </footer>
+  <!-- === PANNEAU DE L'ASSISTANT INTERACTIF === -->
+  <div id="assistant-panel" class="assistant-panel hidden">
+    <div class="assistant-content">
+      <p><strong>👋 Salut ! Je suis Navia</strong></p>
+      <p>Que veux-tu voir ?</p>
+      <button data-page="1-apropos.html">👤 À propos de moi</button>
+      <button data-page="3-societe_novares.html">🏢 Mon entreprise (Novares)</button>
+      <button data-page="5-tableau_competence.html">🔧 Mes compétences</button>
+      <button data-page="6-veille_techno.html">🌐 Veille technologique</button>
 
-  <script>
-    /* Dropdown accessible */
-    const btns = document.querySelectorAll('button.menu-item');
-    btns.forEach(btn=>{
-      btn.addEventListener('click', e=>{
-        const panel = document.getElementById(btn.getAttribute('aria-controls'));
-        const isOpen = btn.getAttribute('aria-expanded')==='true';
+      <!-- Boutons de contact -->
+      <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(55, 255, 159, 0.3);">
+        <p style="color: #aaa; font-size: 0.85rem; margin-bottom: 0.5rem;">Contact rapide</p>
+        <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+        <button class="contact-btn linkedin-btn" onclick="window.open('https://www.linkedin.com/in/aurelienpont', '_blank')">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0077B5" viewBox="0 0 24 24">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.13 0 2.064.925 2.064 2.063 0 1.139-.935 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+  </svg>
+  LinkedIn
+</button>
+  <!-- Formulaire de contact intégré -->
+<!-- Formulaire de contact intégré (sans redirection) -->
+<form action="https://formspree.io/f/xbladpvo" method="POST" style="margin-top: 1rem;">
+  <!-- Empêche la redirection vers Formspree -->
+  <input type="hidden" name="_next" value="0-index.html#contact">
 
-        // Close all
-        btns.forEach(b=>b.setAttribute('aria-expanded','false'));
-        document.querySelectorAll('.dropdown-panel').forEach(p=>p.classList.remove('active'));
+  <input type="text" name="name" placeholder="Ton nom" required
+         style="width:100%; padding:.5rem; margin-bottom:.5rem; border-radius:8px; border:none; font-family:Inter;">
+  <input type="email" name="email" placeholder="Ton email" required
+         style="width:100%; padding:.5rem; margin-bottom:.5rem; border-radius:8px; border:none; font-family:Inter;">
+  <textarea name="message" placeholder="Votre message..." required
+            style="width:100%; padding:.5rem; margin-bottom:.5rem; border-radius:8px; border:none; min-height:80px; font-family:Inter;"></textarea>
+  <button type="submit"
+          style="width:100%; background:#37ff9f; color:#000; padding:.6rem; border:none; border-radius:30px; font-family:Montserrat; font-weight:600; cursor:pointer;">
+    Envoyer
+  </button>
+</form>
+      </div>
 
-        // Toggle current
-        if(!isOpen){
-          btn.setAttribute('aria-expanded','true');
-          panel.classList.add('active');
-        }
-      });
-    });
+      <button class="close-btn" id="close-assistant">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 8H6L7.5 6.5L4 3L5 2L10 7L15 2L16 3L11.5 7.5L13 9L10 12L10 8Z" fill="#37ff9f"/>
+        </svg>
+        Fermer
+      </button>
+    </div>
+  </div>
 
-    /* Close on outside click */
-    document.addEventListener('click', e=>{
-      if(!e.target.closest('nav')){
-        btns.forEach(b=>b.setAttribute('aria-expanded','false'));
-        document.querySelectorAll('.dropdown-panel').forEach(p=>p.classList.remove('active'));
-      }
-    });
+  <!-- Contenu principal -->
+  <main class="main-content">
+    <div class="hero-section fade-in">
+      <h1 class="hero-title">Bienvenue sur mon portfolio</h1>
+      <p class="hero-subtitle">
+        Étudiant en BTS SIO option SISR en alternance chez Novares,
+        je vous invite à découvrir mes projets, mes compétences et mon parcours 
+        dans le domaine des systèmes, réseaux et cybersécurité.
+      </p>
+    </div>
+  </main>
 
-    /* Lottie */
-    let anim;
-    try{
-      anim = lottie.loadAnimation({
-        container: document.getElementById('lottie-animation'),
-        renderer:'svg',
-        loop:true,
-        autoplay:true,
-        path:'RobotSaludando.json'
-      });
-      document.querySelector('.lottie-container').addEventListener('click',()=>anim.goToAndPlay(0));
-    }catch(e){
-      document.querySelector('.lottie-container').style.display='none';
+  <!-- Bouton Retour à l'accueil -->
+  <div class="navigation">
+    <a href="0-index.html" class="nav-link">
+      <svg class="icon-arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M10 8a.5.5 0 0 0-.5-.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H9.5A.5.5 0 0 0 10 8z"/>
+      </svg>
+      Retour à l'accueil
+    </a>
+  </div>
+
+<script>
+/* ========== UTILITAIRES ========== */
+const $ = sel => document.querySelector(sel);
+const $$ = sel => [...document.querySelectorAll(sel)];
+
+/* ========== NAVIGATION DÉROULANTE ========== */
+const menuItems = $$('.menu-item');
+const panels     = $$('.dropdown-panel');
+let activePanel  = null;
+
+menuItems.forEach(item => {
+  item.addEventListener('click', e => {
+    e.stopPropagation();
+    const section = item.dataset.section;
+    const panel   = $(`#${section}-panel`);
+
+    /* Ferme si déjà ouvert */
+    if (activePanel === panel && panel.classList.contains('active')) {
+      panel.classList.remove('active');
+      item.classList.remove('active');
+      item.setAttribute('aria-expanded', 'false');
+      activePanel = null;
+      return;
     }
-  </script>
+
+    /* Ferme tous */
+    panels.forEach(p => p.classList.remove('active'));
+    menuItems.forEach(m => {
+      m.classList.remove('active');
+      m.setAttribute('aria-expanded', 'false');
+    });
+
+    /* Ouvre le bon */
+    if (panel) {
+      panel.classList.add('active');
+      item.classList.add('active');
+      item.setAttribute('aria-expanded', 'true');
+      activePanel = panel;
+    }
+  });
+});
+
+/* Clic extérieur = fermeture */
+document.addEventListener('click', () => {
+  panels.forEach(p => p.classList.remove('active'));
+  menuItems.forEach(m => {
+    m.classList.remove('active');
+    m.setAttribute('aria-expanded', 'false');
+  });
+  activePanel = null;
+});
+
+/* ========== LOTTIE (animation robot) ========== */
+let lottieAnim = null;
+try {
+  lottieAnim = lottie.loadAnimation({
+    container: $('#lottie-animation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'RobotSaludando.json'
+  });
+
+  /* Re-joue l’animation au clic */
+  $('.lottie-container').addEventListener('click', () => {
+    lottieAnim.goToAndPlay(0);
+  });
+
+  /* Fallback si le JSON échoue */
+  lottieAnim.addEventListener('data_failed', () => {
+    $('.lottie-container').style.display = 'none';
+  });
+} catch (e) {
+  console.error('Erreur Lottie :', e);
+  $('.lottie-container').style.display = 'none';
+}
+
+/* ========== ASSISTANT INTERACTIF ========== */
+const assistantPanel = $('#assistant-panel');
+const lottieBtn      = $('.lottie-container');
+const closeBtn       = $('#close-assistant');
+
+const toggleAssistant = (force = null) => {
+  const open = force !== null ? force : assistantPanel.classList.contains('hidden');
+  assistantPanel.classList.toggle('hidden', !open);
+};
+
+lottieBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  toggleAssistant();
+});
+
+closeBtn.addEventListener('click', () => toggleAssistant(false));
+
+/* Boutons de navigation rapide */
+$$('#assistant-panel button[data-page]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const page = btn.dataset.page;
+    if (page) window.location.href = page;
+  });
+});
+
+/* Clic extérieur = ferme l’assistant */
+document.addEventListener('click', e => {
+  if (!assistantPanel.contains(e.target) && !lottieBtn.contains(e.target)) {
+    toggleAssistant(false);
+  }
+});
+</script>
 </body>
 </html>
+
+
+
+
