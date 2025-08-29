@@ -699,115 +699,116 @@
     </a>
   </div>
 
-  <!-- Scripts -->
-  <script>
-    function goToPage(url) {
-      window.location.href = url;
+<script>
+/* ========== UTILITAIRES ========== */
+const $ = sel => document.querySelector(sel);
+const $$ = sel => [...document.querySelectorAll(sel)];
+
+/* ========== NAVIGATION DÉROULANTE ========== */
+const menuItems = $$('.menu-item');
+const panels     = $$('.dropdown-panel');
+let activePanel  = null;
+
+menuItems.forEach(item => {
+  item.addEventListener('click', e => {
+    e.stopPropagation();
+    const section = item.dataset.section;
+    const panel   = $(`#${section}-panel`);
+
+    /* Ferme si déjà ouvert */
+    if (activePanel === panel && panel.classList.contains('active')) {
+      panel.classList.remove('active');
+      item.classList.remove('active');
+      item.setAttribute('aria-expanded', 'false');
+      activePanel = null;
+      return;
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const menuItems = document.querySelectorAll('.menu-item');
-      const panels = document.querySelectorAll('.dropdown-panel');
-      let activePanel = null;
-      
-      menuItems.forEach(item => {
-        item.addEventListener('click', function () {
-          const section = this.getAttribute('data-section');
-          const panel = document.getElementById(section + '-panel');
-          
-          if (activePanel === panel && panel.classList.contains('active')) {
-            panel.classList.remove('active');
-            this.classList.remove('active');
-            activePanel = null;
-            return;
-          }
-          
-          panels.forEach(p => p.classList.remove('active'));
-          menuItems.forEach(m => m.classList.remove('active'));
-          
-          if (panel) {
-            panel.classList.add('active');
-            this.classList.add('active');
-            activePanel = panel;
-          }
-        });
-      });
-      
-      document.addEventListener('click', function (e) {
-        if (!e.target.closest('.top-menu') && !e.target.closest('.dropdown-panel')) {
-          panels.forEach(p => p.classList.remove('active'));
-          menuItems.forEach(m => m.classList.remove('active'));
-          activePanel = null;
-        }
-      });
-
-      // === ANIMATION LOTTIE ===
-      let lottieAnimation;
-      
-      try {
-        lottieAnimation = lottie.loadAnimation({
-          container: document.getElementById('lottie-animation'),
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          path: 'RobotSaludando.json'
-        });
-
-        lottieAnimation.addEventListener('data_failed', function() {
-          console.error('Erreur lors du chargement de l\'animation Lottie');
-          document.querySelector('.lottie-container').style.display = 'none';
-        });
-
-        document.querySelector('.lottie-container').addEventListener('click', function() {
-          if (lottieAnimation) {
-            lottieAnimation.goToAndPlay(0);
-          }
-        });
-
-      } catch (error) {
-        console.error('Erreur lors de l\'initialisation de Lottie:', error);
-        document.querySelector('.lottie-container').style.display = 'none';
-      }
-
-      // === GESTION ASSISTANT INTERACTIF ===
-      const assistantPanel = document.getElementById('assistant-panel');
-      const lottieContainer = document.querySelector('.lottie-container');
-      const closeBtn = document.getElementById('close-assistant');
-
-      function toggleAssistant() {
-        if (assistantPanel.classList.contains('hidden')) {
-          assistantPanel.classList.remove('hidden');
-        } else {
-          assistantPanel.classList.add('hidden');
-        }
-      }
-
-      lottieContainer.addEventListener('click', function (e) {
-        e.stopPropagation();
-        toggleAssistant();
-      });
-
-      closeBtn.addEventListener('click', function() {
-        assistantPanel.classList.add('hidden');
-      });
-
-      const pageButtons = assistantPanel.querySelectorAll('button[data-page]');
-      pageButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const page = this.getAttribute('data-page');
-          if (page) {
-            goToPage(page);
-          }
-        });
-      });
-
-      document.addEventListener('click', function (e) {
-        if (!assistantPanel.contains(e.target) && !lottieContainer.contains(e.target)) {
-          assistantPanel.classList.add('hidden');
-        }
-      });
+    /* Ferme tous */
+    panels.forEach(p => p.classList.remove('active'));
+    menuItems.forEach(m => {
+      m.classList.remove('active');
+      m.setAttribute('aria-expanded', 'false');
     });
-  </script>
+
+    /* Ouvre le bon */
+    if (panel) {
+      panel.classList.add('active');
+      item.classList.add('active');
+      item.setAttribute('aria-expanded', 'true');
+      activePanel = panel;
+    }
+  });
+});
+
+/* Clic extérieur = fermeture */
+document.addEventListener('click', () => {
+  panels.forEach(p => p.classList.remove('active'));
+  menuItems.forEach(m => {
+    m.classList.remove('active');
+    m.setAttribute('aria-expanded', 'false');
+  });
+  activePanel = null;
+});
+
+/* ========== LOTTIE (animation robot) ========== */
+let lottieAnim = null;
+try {
+  lottieAnim = lottie.loadAnimation({
+    container: $('#lottie-animation'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: 'RobotSaludando.json'
+  });
+
+  /* Re-joue l’animation au clic */
+  $('.lottie-container').addEventListener('click', () => {
+    lottieAnim.goToAndPlay(0);
+  });
+
+  /* Fallback si le JSON échoue */
+  lottieAnim.addEventListener('data_failed', () => {
+    $('.lottie-container').style.display = 'none';
+  });
+} catch (e) {
+  console.error('Erreur Lottie :', e);
+  $('.lottie-container').style.display = 'none';
+}
+
+/* ========== ASSISTANT INTERACTIF ========== */
+const assistantPanel = $('#assistant-panel');
+const lottieBtn      = $('.lottie-container');
+const closeBtn       = $('#close-assistant');
+
+const toggleAssistant = (force = null) => {
+  const open = force !== null ? force : assistantPanel.classList.contains('hidden');
+  assistantPanel.classList.toggle('hidden', !open);
+};
+
+lottieBtn.addEventListener('click', e => {
+  e.stopPropagation();
+  toggleAssistant();
+});
+
+closeBtn.addEventListener('click', () => toggleAssistant(false));
+
+/* Boutons de navigation rapide */
+$$('#assistant-panel button[data-page]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const page = btn.dataset.page;
+    if (page) window.location.href = page;
+  });
+});
+
+/* Clic extérieur = ferme l’assistant */
+document.addEventListener('click', e => {
+  if (!assistantPanel.contains(e.target) && !lottieBtn.contains(e.target)) {
+    toggleAssistant(false);
+  }
+});
+</script>
 </body>
 </html>
+
 
